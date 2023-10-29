@@ -1,0 +1,56 @@
+Prompt membuat plugin untuk chatGPT4.
+
+Bantu saya membuat sebuah plugin, tetapi saya minta kamu jangan mulai menuliskan kode sebelum saya perintahkan [kerjakan]. Apa kamu mengerti?
+
+Saya akan berikan informasi mengenai plugin yang akan saya buat ini secara bertahap agar kamu mengerti dengan apa yang saya inginkan. Saya membagi proyek plugin ini menjadi beberapa bagian yaitu: Keterangan Plugin, Fungsi Plugin, Kebutuhan Plugin, Algorithm Plugin, Contoh Penggunaan Plugin. Apa kamu mengerti? Catat ini dan ingat-ingat baik-baik.
+
+
+==Keterangan Plugin:==
+/**
+* Plugin Name: Masmon Content Generator
+* Plugin URI: https://masmons.com
+* Author: Masmons
+* Author URI: https://masmons.com
+* Version: 1.0.0
+*/
+
+- Folder plugin: mmcg
+- Isi file plugin: index.php, mmcg.php, mmcg.css, mmcg.js
+- Saya akan menggunakan jQuery versi 3.7.1
+
+==Fungsi Plugin:==
+- generate content dan terpublish secara otomatis yang:
+-- sesuai dengan kategori yang di tentukan
+-- featured image yang di tentukan
+
+==Kebutuhan Plugin:==
+- option page berisi:
+-- ul li berisi semua kategori yang ada di wordpress untuk di pilih sebagai kategori dari post yang akan di publish
+-- tombol yang mengarah ke media library untuk memilih gambar-gambar yang akan di gunakan untuk post yang akan di publish
+-- input text (name: kota) untuk memasukan nama kota
+-- textarea (name: judul-post) untuk memasukan judul-judul post yang dipisahkan dengan baris baru
+-- textarea (name: isi-post) untuk memasukan isi post
+-- textarea (name: tag-post) untuk memasukan tag-tag post yang dipisahkan dengan koma
+-- tombol untuk memulai generate content dan terpublish secara otomatis
+
+==Algorithm Plugin:==
+Algorithm untuk post title adalah: [judul-post] di [kota].
+Algorithm untuk post content adalah: [isi-post] akan berisi spintax (spintax akan berisi nested spintax).
+Algorithm untuk post tag adalah: [tag-post] + [kota] (tambahkan atau append [kota] disetiap akhir tag), contoh: tag 1 [kota], tag 2 [kota], tag 3 [kota] dst
+Algorithm untuk featured image adalah: lakukan random dari gambar-gambar yang sudah di pilih di media library (gambar-gambar yang sudah di pilih di media library akan di simpan di database) dan jadikan sebagai featured image (jika jumlah gambar yang sudah di pilih di media library kurang dari jumlah post yang akan di publish maka lakukan random dari gambar-gambar yang sudah di pilih di media library sampai jumlah post yang akan di publish terpenuhi).
+
+==Contoh Penggunaan Plugin:==
+ChatGPT saya harap kamu perhatikan dengan bagaimana cara plugin ini bekerja.
+
+- step 1: user mengunjungi option page (plugin option page)
+- step 2: user memilih category melalui dropdown list (category yang di pilih akan di simpan di database)
+- step 3: user memilih gambar-gambar yang akan di gunakan untuk post yang akan di publish (gambar-gambar yang sudah di pilih akan di simpan di database)
+- step 4: user memasukan nama kota (nama kota akan di simpan di database)
+- step 5: user memasukan judul-judul post yang dipisahkan dengan baris baru (judul-judul post akan di simpan di database)
+- step 6: user memasukan isi post (isi post akan di simpan di database)
+
+==Tugas Untuk ChatGPT:==
+
+- buatkan file php mmcg.php pastikan isi file ditulis dengan benar, lengkap dan penuh dan sesuai dengan keterangan plugin yang saya berikan diatas agar plugin ini dapat berjalan dengan baik. [kerjakan]
+- buatkan isi file mmcg.js [kerjakan]
+- buatkan isi file mmcg.css untuk mengatur tampilan option page  [kerjakan]

@@ -1,0 +1,14 @@
+.acf-admin-page #tmpl-acf-field-group-pro-features,
+.acf-admin-page #acf-field-group-pro-features {
+  display: none !important;
+}
+
+.cb-separator {
+  background-color: black;
+}
+.cb-separator h3 {
+  color: white;
+  font-size: 0.8rem;
+  line-height: 1;
+  margin: 0;
+}
