@@ -14,7 +14,18 @@ defined('ABSPATH') || exit;
         <div id="about-wr">
             <div id="about-top" class="w100 about-row">
                 <h2 id="about-head" class="section-head color-accent-1">Supplier Roller Blinds Sharp Point</h2>
-                <span>Kami merupakan supplier roller blinds, vertical blinds, horizontal blinds dan produk-produk window blinds lainnya buatan Sharp Point. Termasuk juga supplier gorden (tirai) anti noda dan anti bakteri untuk rumah sakit dan klinik di Indonesia.</span>
+                <span>Kami merupakan supplier roller blinds, vertical blinds, horizontal blinds dan produk-produk window blinds lainnya buatan Sharp Point.</span>
+                <h3 class="abcta-head">Get Free Consultation:</h3>
+                <div id="about-cta-item-wr">
+                    <div class="about-cta-item">
+                        <small>Konsultasikan kebutuhan interior design Anda dengan Chat Whatsapp.</small>
+                        <a href="<?php mm_show_cta('whatsapp') ?>" class="about-cta abwa"><i class="fab fa-whatsapp"></i> Chat</a>
+                    </div>
+                    <div class="about-cta-item">
+                        <small>Konsultasikan kebutuhan interior design Anda dengan panggilan telepon.</small>
+                        <a href="<?php mm_show_cta('phone') ?>" class="about-cta abcall"><i class="fas fa-phone"></i> Telepon</a>
+                    </div>
+                </div>
             </div>
             <div id="about-mid" class="w100 about-row">
                 <div id="about-mid-top">

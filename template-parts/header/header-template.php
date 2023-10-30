@@ -29,9 +29,9 @@ if (!is_front_page() || !is_home()) {
                 <div id="header-right" class="hw100 header-col">
                     <nav id="header-menu">
                         <ul id="header-menu-item-wr">
-                            <li class="header-menu-item"><a href="/">Home</a></li>
-                            <li class="header-menu-item"><a href="#">About</a></li>
-                            <li class="fcont-trigger header-menu-item"><a href="#">Contact</a></li>
+                            <li class="header-menu-item"><a href="/">Homes</a></li>
+                            <li class="header-menu-item"><a href="/#about">About</a></li>
+                            <li class="fcont-trigger header-menu-item">Contacts</li>
                         </ul>
                     </nav>
                     <div id="prod-menu-trigger">
@@ -45,19 +45,7 @@ if (!is_front_page() || !is_home()) {
 
     <div id="catmenu" class="section">
         <div class="container h100">
-            <div id="catmenu-wr" class="h100">
-                <nav id="catmenu-nav" class="hw100">
-                    <ul id="cat-menu-item-wr" class="horizontal-menu hw100">
-                        <li class="catmenu-item"><a href="#">Roller Blinds</a></li>
-                        <li class="catmenu-item"><a href="#">Roller Blinds</a></li>
-                        <li class="catmenu-item"><a href="#">Roller Blinds</a></li>
-                        <li class="catmenu-item"><a href="#">Roller Blinds</a></li>
-                        <li class="catmenu-item"><a href="#">Roller Blinds</a></li>
-                        <li class="catmenu-item"><a href="#">Roller Blinds</a></li>
-                        <li class="catmenu-item"><a href="#">Roller Blinds</a></li>
-                    </ul>
-                </nav>
-            </div>
+            <?php mm_show_category_menu('fpc'); ?>
         </div>
     </div>
 
@@ -77,8 +65,8 @@ if (!is_front_page() || !is_home()) {
                     <nav id="header-menu">
                         <ul id="header-menu-item-wr">
                             <li class="header-menu-item"><a href="/">Home</a></li>
-                            <li class="header-menu-item"><a href="#">About</a></li>
-                            <li class="header-menu-item"><a href="#">Contact</a></li>
+                            <li class="header-menu-item"><a href="/#about">About</a></li>
+                            <li class="fcont-trigger header-menu-item">Contacts</li>
                         </ul>
                     </nav>
                     <div id="prod-menu-trigger">

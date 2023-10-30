@@ -19,13 +19,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
         */
         mm_load_fpc();
         function mm_load_fpc() {
-            var $fpc = jQuery('#fpc');
+            var $fpc = jQuery('#fpc-home');
             function toggleFpc() {
                 $fpc.toggleClass('active');
                 jQuery('body').toggleClass('no-scroll');
             }
             jQuery('#prod-menu-trigger, .prod-menu-trigger').click(toggleFpc);
-            jQuery('#fpc-close, #fpc').click(toggleFpc);
+            jQuery('#fpc-home').click(toggleFpc);
         }
 
         mm_load_fcontact();
@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 jQuery('body').toggleClass('no-scroll');
             }
             jQuery('.fcont-trigger').click(toggleFcontact);
-            jQuery('#fcontact-close, #fcontact').click(toggleFcontact);
+            jQuery('#fcontact').click(toggleFcontact);
         }
 
 

@@ -44,7 +44,8 @@ function mm_show_cb_global_discount()
             $global_discount = carbon_get_user_meta($author_id, 'cb_global_discount');
             echo '<div class="arc-global-discount"><span class="arc-disc-text">Disc Up to</span><div class="arc-disc-number">' . esc_html($global_discount) . '<sup>%</sup></div>' . mm_show_post_author_login() . '</div>';
         } else {
-            $text_message = 'Hallo%20Supplier%20Blinds';
+            $global_discount = '<div class="global-discount prod-global-discount"><div class="gdinner"><span class="loop-potongan-harga">Disc Up To</span><span class="loop-discount-number">' . carbon_get_user_meta(get_post_field('post_author', get_the_ID()), 'cb_global_discount') . '<sup class="loop-persen">%</sup></span><span class="khusus">Di area ' . (get_the_author_meta('user_login')) . ' & sekitarnya</span></div></div>';
+            echo $global_discount;
         }
     }
 }
@@ -137,8 +138,7 @@ function mm_show_all_user_cb_user_phone()
         $phone = str_replace(' ', '', $phone);
 ?>
         <div class="fcontact-item <?php echo $name; ?>">
-            <span class="fcontact-item-name"><?php echo esc_html($name); ?></span>
-            <a class="fcontact-item-link" href="<?php echo esc_html($phone); ?>"><i class="fab fa-whatsapp"></i> Chat Cabang <?php echo esc_html($name); ?></a>
+            <a class="fcontact-item-link" href="//api.whatsapp.com/send?phone=<?php echo esc_html($phone); ?>"><span><?php echo esc_html($name); ?></span> <span class="fcontact-item-name"><?php echo esc_html(carbon_get_user_meta($user->ID, 'cb_user_phone')); ?></span></a>
         </div>
 <?php
     }

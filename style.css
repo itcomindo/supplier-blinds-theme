@@ -147,6 +147,14 @@ span {
 .no-scroll {
   overflow: hidden;
 }
+.hide {
+  display: none !important;
+  visibility: hidden !important;
+}
+.pad-y-5 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
 h1,
 h2,
 h3,
@@ -294,19 +302,18 @@ a.cta-button {
   top: 0;
   left: 0;
   overflow: hidden;
-  background-color: var(--transparent-light-4);
   color: white;
+  z-index: 2;
 }
 .gdinner {
-  width: 100px;
-  background-color: var(--color-accent-1-dark);
+  background-color: var(--transparent-dark-5);
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   line-height: 1;
-  padding: 1rem;
+  padding: 0.8rem 0.5rem;
 }
 .loop-potongan-harga {
   font-size: 10px;
@@ -325,6 +332,57 @@ a.cta-button {
   text-align: center;
   font-weight: 100;
   font-family: var(--font-primary);
+}
+.khusus {
+  font-size: 75%;
+  text-align: center;
+}
+
+/**
+=========================
+* Shape Divider
+* @todo Shape Divider
+*=========================
+*/
+.cta-divider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.cta-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+.cta-divider .shape-fill {
+  fill: #ffffff;
+}
+
+.rekanan-divider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.rekanan-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+  transform: rotateY(180deg);
+}
+
+.rekanan-divider .shape-fill {
+  fill: #f0f8ff;
 }
 
 /**
@@ -405,10 +463,12 @@ ul#header-menu-item-wr {
   padding: 0;
   margin: 0;
   list-style: none;
+  color: white;
 }
 ul#header-menu-item-wr li {
   margin-right: 1rem;
   padding: 0 1rem;
+  cursor: pointer;
 }
 #prod-menu-trigger {
   width: auto;
@@ -526,7 +586,11 @@ a.cta-button {
   background: linear-gradient(to bottom, blue, darkblue);
 }
 .cta-item:nth-child(3) a.cta-button {
-  background: linear-gradient(to bottom, red, darkred);
+  background: linear-gradient(
+    to bottom,
+    var(--color-accent-1),
+    var(--color-accent-1-dark)
+  );
 }
 
 /**
@@ -557,7 +621,22 @@ h2#prod-setion-head {
   border: 1px solid var(--transparent-dark-1);
   box-shadow: var(--box-shadows-3);
 }
-
+.prod-author {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-size: 80%;
+  font-family: var(--font-display);
+  letter-spacing: 1px;
+  line-height: 1.2;
+  font-weight: 700;
+  padding: 3px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--transparent-light-2);
+  color: white;
+}
 .prod-item:after {
   width: 50px;
   height: 50px;
@@ -621,11 +700,70 @@ h3.prod-title a {
 /**
 =========================
 * Floating Product Category
-* @todo fpc Floating Product Category
+* @todo fpc Floating Non HOME  Category
+*=========================
+*/
+#fpc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#fpc-wr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#fpc #fpc-close {
+  display: none !important;
+  visibility: hidden !important;
+}
+#fpc #fpc-head {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+#fpc nav#fpc-nav {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: auto;
+}
+
+#fpc ul#fpc-item-wr {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+}
+li.fpc-item {
+  display: inline-block;
+  width: max-content;
+  padding: 0 10px;
+  margin: auto 6px;
+}
+li.fpc-item:first-child {
+  margin-left: 0;
+}
+li.fpc-item a {
+  width: 100%;
+  display: block;
+  color: white;
+}
+
+/**
+=========================
+* Floating Product Category
+* @todo fpc Floating HOME Product Category
 *=========================
 */
 
-#fpc {
+#fpc-home {
   position: fixed;
   top: 0;
   left: 0;
@@ -637,12 +775,13 @@ h3.prod-title a {
   transition: 0.3s linear all;
 }
 
-#fpc.active {
+#fpc-home.active {
   transform: translateX(0);
   transition: 0.3s linear all;
 }
 
-#fpc-wr {
+#fpc-home #fpc-wr {
+  height: auto;
   width: 300px;
   position: absolute;
   top: 50%;
@@ -654,7 +793,7 @@ h3.prod-title a {
   border-radius: 25px;
 }
 
-#fpc-close {
+#fpc-home #fpc-close {
   position: absolute;
   width: 30px;
   height: 30px;
@@ -662,18 +801,22 @@ h3.prod-title a {
   left: 50%;
   background-color: darkred;
   color: white;
-  display: flex;
+  display: flex !important;
+  visibility: visible !important;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   transform: translateX(-50%);
   border-radius: 50%;
   cursor: pointer;
+  z-index: 99999;
 }
-#fpc-head {
+#fpc-home #fpc-head {
   color: var(--color-accent-1);
+  display: block !important;
+  visibility: visible !important;
 }
-ul#fpc-item-wr {
+#fpc-home ul#fpc-item-wr {
   width: 100%;
   padding: 0;
   margin: 0;
@@ -683,17 +826,20 @@ ul#fpc-item-wr {
   align-items: flex-start;
   box-sizing: border-box;
 }
-.fpc-item {
+#fpc-home .fpc-item {
   box-sizing: border-box;
   display: flex;
   width: 100%;
   padding-bottom: 2px;
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: 0;
   margin-bottom: 8px;
   font-size: 85%;
   border-bottom: 1px dashed var(--transparent-light-4);
 }
 
-.fpc-item-link {
+#fpc-home .fpc-item-link {
   color: white;
 }
 
@@ -752,8 +898,6 @@ ul#fpc-item-wr {
 
 #fcontact-item-wr {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: center;
   gap: 1rem;
 }
 
@@ -762,29 +906,18 @@ ul#fpc-item-wr {
 }
 
 .fcontact-item {
+  width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 8px;
 }
-.fcontact-item-name {
-  font-size: 90%;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-a.fcontact-item-link i {
-  margin-right: 6px;
-}
 a.fcontact-item-link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  line-height: 1;
-  font-size: 80%;
+  width: 100%;
   color: white;
-  border: 1px solid var(--transparent-light-2);
-  padding: 8px 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed var(--transparent-light-4);
+  font-size: 80%;
 }

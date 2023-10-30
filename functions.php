@@ -140,3 +140,14 @@ add_action('after_setup_theme', 'mm_call_carbon_fields'); // install carbon fiel
 
 require_once get_template_directory() . '/inc/inc.php';
 require get_template_directory() . '/assets/assets.php';
+
+
+// Menonaktifkan pemeriksaan kecocokan kata sandi untuk user baru.
+function mm_disable_password_check($errors, $update, $user)
+{
+	// Menghapus error "Passwords do not match" jika ada.
+	if ($errors->get_error_message('pass') == 'Passwords do not match. Please enter the same password in both password fields.') {
+		$errors->remove('pass');
+	}
+}
+add_action('user_profile_update_errors', 'mm_disable_password_check', 10, 3);

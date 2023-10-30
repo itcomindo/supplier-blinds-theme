@@ -52,8 +52,13 @@ function mm_ambil_gambar_rekanan()
 ?>
 
 <div id="rekanan" class="section row">
+    <div class="rekanan-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+        </svg>
+    </div>
     <div class="container">
-        <div id="rekanan-wr">
+        <div id="rekanan-wr" class="pad-y-5">
             <div id="rekanan-top">
                 <h3 class="section-head-medium">Produk Kami Telah Terpasang di:</h3>
                 <span id="rekanan-text" class="font-display font-display-text">Produk kami telah terpasang di:</span>
