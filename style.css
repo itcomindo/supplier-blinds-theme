@@ -484,7 +484,8 @@ ul#header-menu-item-wr li {
   padding: 0 1rem;
   cursor: pointer;
 }
-#prod-menu-trigger {
+#prod-menu-trigger,
+#smt {
   width: auto;
   color: white;
   font-size: 1.3rem;
@@ -494,6 +495,11 @@ ul#header-menu-item-wr li {
   line-height: 1.3;
   cursor: pointer;
 }
+
+#smt {
+  margin-left: 1rem;
+}
+
 #prod-menu-trigger span {
   font-size: 12px;
   text-transform: uppercase;
@@ -622,6 +628,13 @@ h2#prod-setion-head {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+#prod-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 #prod-item-wr {
@@ -787,7 +800,7 @@ li.fpc-item a {
   width: 100%;
   height: 100vh;
   z-index: 777;
-  background-color: var(--transparent-dark-4);
+  background-color: var(--transparent-dark-8);
   transform: translateX(-100%);
   transition: 0.3s linear all;
 }
@@ -982,6 +995,92 @@ a.fcontact-item-link {
 
 /**
 =========================
+* Search Modal
+* @todo Search Modal
+*=========================
+*/
+
+#search-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  background-color: var(--transparent-dark-8);
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#search-modal.active {
+  z-index: 7777;
+  opacity: 1;
+  visibility: visible;
+  transition: 0.3s linear all;
+}
+
+#search-modal-wr {
+  width: 768px;
+  max-width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  color: white;
+  border-radius: 10px;
+}
+
+#search-modal-close {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: calc(-2rem - 20px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: darkred;
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+#search-modal-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#sm-form {
+  width: calc(100% - 2rem);
+  display: grid;
+  gap: 0.33rem;
+  grid-template-columns: 1fr 100px;
+  align-items: center;
+  justify-content: center;
+}
+
+#sm-form input {
+  padding: 6px;
+  border-radius: 5px 0 0 5px;
+  border: none;
+}
+#sm-form button {
+  padding: 6px;
+  border-radius: 0 5px 5px 0;
+}
+
+/**
+=========================
 * Media Query Start
 * @todo Media Query Start
 *=========================
@@ -1070,6 +1169,9 @@ a.fcontact-item-link {
 */
 @media screen and (max-width: 540px) {
   #header-menu {
+    display: none;
+  }
+  #smt {
     display: none;
   }
   #fm {
@@ -1198,5 +1300,17 @@ a.fcontact-item-link {
   }
   #topbar-right {
     display: none;
+  }
+}
+
+/**
+=========================
+* 361px
+* @todo 361px
+*=========================
+*/
+@media screen and (max-width: 361px) {
+  #prod-item-wr {
+    grid-template-columns: 1fr;
   }
 }

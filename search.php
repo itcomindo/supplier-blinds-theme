@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Search Template
  *
@@ -6,4 +7,5 @@
  */
 defined('ABSPATH') || exit;
 get_header();
+get_template_part('inc/global-query');
 get_footer();

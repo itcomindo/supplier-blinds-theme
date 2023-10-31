@@ -16,7 +16,7 @@ defined('ABSPATH') || exit;
         <div id="prod-wr">
             <div id="prod-top">
                 <h2 id="prod-setion-head" class="section-head-big">Produk</h2>
-                <span class="lw75-mw100 text-left">Hanya menjual produk-produk Window Blinds (Roller, Horizontal, Vertical, Wooden, Zebra blind) terbaik, berkualitas dengan harga terjangkau</span>
+                <span class="lw75-mw100 text-center">Hanya menjual produk-produk Window Blinds (Roller, Horizontal, Vertical, Wooden, Zebra blind) terbaik, berkualitas dengan harga terjangkau</span>
             </div>
             <div id="prod-item-wr">
                 <?php mm_show_produk_display(); ?>
@@ -53,6 +53,12 @@ function mm_show_produk_display()
             'posts_per_page' => 10,  // Tampilkan 10 post per halaman.
             'orderby' => 'rand',  // Urutkan secara acak.
             'category_name' => $current_category
+        );
+    } elseif (is_search()) {
+        $args = array(
+            'posts_per_page' => 10,  // Tampilkan 10 post per halaman.
+            'orderby' => 'rand',  // Urutkan secara acak.
+            's' => get_search_query()
         );
     } else {
         $args = array(

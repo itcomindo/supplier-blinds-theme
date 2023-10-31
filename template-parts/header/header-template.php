@@ -38,6 +38,7 @@ if (!is_front_page() || !is_home()) {
                         <i class="fas fa-bars"></i>
                         <span>Product</span>
                     </div>
+                    <div id="smt" class="search-modal-trigger"><i class="fas fa-magnifying-glass"></i></div>
                 </div>
             </div>
         </div>
@@ -73,6 +74,7 @@ if (!is_front_page() || !is_home()) {
                         <i class="fas fa-bars"></i>
                         <span>Product</span>
                     </div>
+                    <div id="smt" class="search-modal-trigger"><i class="fas fa-magnifying-glass"></i></div>
                 </div>
             </div>
         </div>

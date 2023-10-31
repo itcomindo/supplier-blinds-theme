@@ -12,6 +12,31 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
         /**
         =========================
+        * Search Modal
+        *=========================
+        */
+        mm_launch_search_modal();
+        function mm_launch_search_modal() {
+
+            /*=========================Open Search Modal=========================*/
+            jQuery('.search-modal-trigger').click(function () {
+                jQuery('#search-modal').toggleClass('active');
+                jQuery('body').addClass('no-scroll');
+            });
+
+            /*=========================Close Search Modal=========================*/
+            jQuery('#search-modal-close').click(function () {
+                jQuery('#search-modal').removeClass('active');
+                jQuery('body').removeClass('no-scroll');
+            });
+
+
+
+        }
+
+
+        /**
+        =========================
         * Rekanan Slider
         *=========================
         */
