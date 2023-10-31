@@ -41,14 +41,14 @@
 #arc-cta-item-wr {
   width: 100%;
   display: grid;
-  grid-template-columns: auto repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
 
 a.arc-cta-item {
+  display: flex;
   padding: 6px 1rem;
   border: 1px solid var(--transparent-dark-2);
-  display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: var(--box-shadows-2);
@@ -58,6 +58,18 @@ a.arc-cta-item i {
   margin-right: 6px;
 }
 
+a#arc-cta-wa {
+  background: linear-gradient(to bottom, green, darkgreen);
+  color: white;
+}
+a#arc-cta-call {
+  background: linear-gradient(
+    to bottom,
+    var(--color-accent-1),
+    var(--color-accent-1-dark)
+  );
+  color: white;
+}
 #arc-right {
   padding: 2rem;
   overflow: hidden;
@@ -159,4 +171,36 @@ img.arc-fim {
   align-items: center;
   justify-content: center;
   line-height: 1;
+}
+
+/**
+=========================
+* Media Queries Single
+* @todo single media queries start
+*=========================
+*/
+
+/**
+=========================
+* 767px
+* @todo single 767px
+*=========================
+*/
+@media screen and (max-width: 767px) {
+  #arc-wr.supplier {
+    grid-template-columns: 1fr;
+  }
+}
+
+/**
+=========================
+* 394px
+* @todo single 394px
+*=========================
+*/
+
+@media screen and (max-width: 394px) {
+  #arc-cta-item-wr {
+    grid-template-columns: 1fr;
+  }
 }

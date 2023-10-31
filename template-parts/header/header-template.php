@@ -11,7 +11,7 @@ defined('ABSPATH') || exit;
 
 if (!is_front_page() || !is_home()) {
 ?>
-    <div id="topbar">
+    <div id="topbar" class="section">
         <div class="container h100">
             <div id="topbar-wr" class="hw100">
                 <div id="topbar-left" class="topbar-col hw100"><span>Supplier Tirai (Roller Blinds)</span></div>
@@ -34,7 +34,7 @@ if (!is_front_page() || !is_home()) {
                             <li class="fcont-trigger header-menu-item">Contacts</li>
                         </ul>
                     </nav>
-                    <div id="prod-menu-trigger">
+                    <div id="prod-menu-trigger" class="prod-menu-trigger">
                         <i class="fas fa-bars"></i>
                         <span>Product</span>
                     </div>
@@ -69,7 +69,7 @@ if (!is_front_page() || !is_home()) {
                             <li class="fcont-trigger header-menu-item">Contacts</li>
                         </ul>
                     </nav>
-                    <div id="prod-menu-trigger">
+                    <div id="prod-menu-trigger" class="prod-menu-trigger">
                         <i class="fas fa-bars"></i>
                         <span>Product</span>
                     </div>

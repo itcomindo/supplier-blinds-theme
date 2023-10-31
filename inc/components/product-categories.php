@@ -53,7 +53,7 @@ function mm_show_category_menu($the_id = 'fpc')
     echo '<div id="' . $the_id . '" class="h100">';
     echo '<div id="fpc-wr" class="h100">';
     echo '<div id="fpc-close" class="hide">X</div>';
-    echo '<h3 id="fpc-head" class="hide">Kategori Produk</h3>';
+    echo '<h3 id="fpc-head" class="hide">Pilih Berdasarkan Kategori:</h3>';
     echo '<nav id="fpc-nav">';
     echo '<ul id="fpc-item-wr">';
     foreach ($categories as $category) {

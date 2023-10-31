@@ -51,14 +51,21 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
 
 
+        /**
+        =========================
+        * Replace Potongan Harga
+        *=========================
+        */
+        mm_rep();
+        function mm_rep() {
+            var teksLama = jQuery('.global-discount.fm-banner .potongan-harga').text();
+            var teksBaru = teksLama.replace(teksLama, 'Promo Upto');
+            jQuery('.global-discount.fm-banner .potongan-harga').text(teksBaru);
+        }
 
-
-
-
-
-
-
-
+        jQuery('.global-discount.fm-banner').click(function () {
+            jQuery('#fm-berlaku').toggleClass('active');
+        });
 
 
         /**
@@ -74,20 +81,30 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 $fpc.toggleClass('active');
                 jQuery('body').toggleClass('no-scroll');
             }
-            jQuery('#prod-menu-trigger, .prod-menu-trigger').click(toggleFpc);
+            jQuery('.prod-menu-trigger').click(toggleFpc);
             jQuery('#fpc-home').click(toggleFpc);
         }
 
         mm_load_fcontact();
         function mm_load_fcontact() {
             var $fcontact = jQuery('#fcontact');
+            var $fmBanner = jQuery('.global-discount.fm-banner');
             function toggleFcontact() {
                 $fcontact.toggleClass('active');
+                $fmBanner.toggleClass('hide');
                 jQuery('body').toggleClass('no-scroll');
             }
             jQuery('.fcont-trigger').click(toggleFcontact);
             jQuery('#fcontact').click(toggleFcontact);
         }
+
+
+        /**
+        =========================
+        * Add animate to .global-discount.fm-banner
+        *=========================
+        */
+        jQuery('.global-discount.fm-banner').addClass('animate__animated animate__bounceInDown animate__delay-1s');
 
 
 

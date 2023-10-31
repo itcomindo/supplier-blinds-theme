@@ -83,6 +83,7 @@ function mm_show_produk_display()
                     <span class="prod-author"><?php echo esc_html(get_the_author_meta('user_login')); ?></span>
                 </div>
                 <div class="prod-bot">
+                    <?php get_template_part('inc/components/five-stars'); ?>
                     <h3 class="prod-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_html(get_the_title()); ?>" rel="bookmark"><?php echo esc_html(get_the_title()); ?></a></h3>
                     <span class="prod-excerpt"><?php echo esc_html(get_the_title()); ?> dapat dipesan disini.</span>
                     <a href="<?php the_permalink(); ?>" class="prod-detail" rel="bookmark" title="<?php echo esc_html(get_the_title()); ?>"><i class="fas fa-arrow-right"></i> Lihat Detail Produk</a>

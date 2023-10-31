@@ -14,9 +14,6 @@ if (is_single()) {
     $pcname = get_the_category($posid)[0]->name;
 }
 
-
-
-
 ?>
 
 <section id="arc" class="section">
@@ -27,14 +24,31 @@ if (is_single()) {
                     <h1 id="arc-head">
                         <?php echo get_the_title(); ?>
                     </h1>
-                    Hubungi Nomor Telepon <?php echo mm_show_cta_by_user('display') . ' | ' . substr(get_the_title() . ' ' . get_the_excerpt(), 0, 160); ?>
+                    <?php
+
+                    if ('Supplier' === $pcname) {
+                        //get post author
+                        // $post_author_login = ;
+                    ?>
+                        <span>Nomor Telepon Supplier/Agen/Distributor Blinds <?php echo get_the_author_meta('user_login', get_post_field('post_author', $posid)); ?> <?php echo mm_show_cta_by_user('display'); ?>. Harga tirai blinds disini lebih terjangkau (murah) dan kualitas terbaik.</span>
+                    <?php
+                    } else {
+                    ?>
+                        <span>Beli tirai roller, vertical, horizontal, wooden, zebra indoor dan outdoor blinds disini jaminan harga terbaik dari kami.</span>
+                    <?php
+
+                    }
+
+
+
+                    ?>
                     <div id="arc-cta-item-wr">
                         <a href="<?php mm_show_cta_by_user('whatsapp') ?>" id="arc-cta-wa" class="arc-cta-item" title="Nomor Telepon Whatsapp <?php echo get_the_title(); ?>"><i class="fab fa-whatsapp"></i> Chat Whatsapp</a>
                         <a href="<?php mm_show_cta_by_user('phone') ?>" id="arc-cta-call" class="arc-cta-item" title="Nomor Telepon Whatsapp <?php echo get_the_title(); ?>"><i class="fas fa-phone"></i> Telepon Kami</a>
                     </div>
                 </div>
                 <div id="arc-right" class="arc-col">
-                    <?php the_post_thumbnail('full', array('title' => get_the_title(), 'class' => 'arc-fim', 'alt' => get_the_title())); ?>
+                    <?php the_post_thumbnail('full', array('title' => 'Photo ' . get_the_title(), 'class' => 'arc-fim', 'alt' => 'Photo ' . get_the_title())); ?>
                 </div>
             </div>
         </div>

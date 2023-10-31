@@ -469,6 +469,19 @@ h3#testi-head {
 
 /**
 =========================
+* 768px
+* @todo 768px
+*=========================
+*/
+@media screen and (max-width: 768px) {
+  .about-cta-item small {
+    height: auto;
+    font-size: 90%;
+  }
+}
+
+/**
+=========================
 * 767px
 * @todo 767px
 *=========================
