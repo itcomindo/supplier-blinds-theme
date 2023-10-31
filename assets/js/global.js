@@ -6,7 +6,57 @@ window.addEventListener('DOMContentLoaded', (event) => {
         var $bodyClass = jQuery('body').attr('class');
         if ($bodyClass.includes('home')) {
             // mm_rotate_global_discount_banner_on_home_hero();
+            mm_rekanan_slider();
         }
+
+
+        /**
+        =========================
+        * Rekanan Slider
+        *=========================
+        */
+        function mm_rekanan_slider() {
+            jQuery('#rekanan-item-wr, #testi-item-wr').flickity({
+                // options
+                cellAlign: 'center',
+                contain: true,
+                prevNextButtons: false,
+                autoPlay: false,
+                wrapAround: true,
+                // pageDots: false,
+            });
+
+            mm_rekanan_image_width_detector();
+            jQuery(window).resize(function () {
+                mm_rekanan_image_width_detector();
+            });
+        }
+
+
+        /**
+        =========================
+        * Rekanan Image Width Detector
+        *=========================
+        */
+        function mm_rekanan_image_width_detector() {
+            var imgs = jQuery('img.rekanan-img');
+            // Cari lebar dan tinggi gambar, kemudian buat atribut lebar dan tinggi.
+            imgs.each(function () {
+                var ini = jQuery(this);
+                var w = ini.width();
+                var h = ini.height();
+                ini.attr('width', w);
+                ini.attr('height', h);
+            });
+        }
+
+
+
+
+
+
+
+
 
 
 

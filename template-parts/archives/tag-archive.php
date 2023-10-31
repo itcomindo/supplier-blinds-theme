@@ -36,6 +36,20 @@ if ('Supplier' === get_the_category(get_the_ID())[0]->cat_name) {
         </div>
     </section>
 <?php
+} else {
+?>
+    <section id="arc-content" class="section">
+        <div class="container">
+            <div id="arc-content-wr" class="supplier">
+                <?php mm_show_cb_global_discount(); ?>
+                <div id="the-content">
+                    <h2 id="the-content-head" class="section-head-medium">Info Harga, Penawaran <?php echo esc_html(single_tag_title('', false)); ?></h2>
+                    <?php the_content(); ?>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php
 }
 
 
@@ -49,7 +63,8 @@ function mm_show_tag_content()
         if ('Supplier' === get_the_category(get_the_ID())[0]->cat_name) {
             mm_tag_with_category_supplier();
         } else {
-            mm_tag_with_category_non_supplier();
+            mm_tag_with_category_supplier();
+            // mm_tag_with_category_non_supplier();
         }
     }
 }

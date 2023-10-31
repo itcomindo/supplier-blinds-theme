@@ -23,7 +23,7 @@ function mm_ambil_gambar_rekanan()
     // Jika ada file yang ditemukan.
     if (!empty($files)) {
         if (mm_is_devmode()) {
-            $x = 6;
+            $x = 10;
             for ($y = 0; $y < $x; $y++) {
                 $file_url = content_url('/uploads/rekanan/' . basename($files[$y]));
                 $output .= '<div class="rekanan-item">';
@@ -58,7 +58,7 @@ function mm_ambil_gambar_rekanan()
         </svg>
     </div>
     <div class="container">
-        <div id="rekanan-wr" class="pad-y-5">
+        <div id="rekanan-wr" class="pad-top-5">
             <div id="rekanan-top">
                 <h3 class="section-head-medium">Produk Kami Telah Terpasang di:</h3>
                 <span id="rekanan-text" class="font-display font-display-text">Produk kami telah terpasang di:</span>

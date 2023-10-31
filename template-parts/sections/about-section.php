@@ -18,7 +18,7 @@ defined('ABSPATH') || exit;
                 <h3 class="abcta-head">Get Free Consultation:</h3>
                 <div id="about-cta-item-wr">
                     <div class="about-cta-item">
-                        <small>Konsultasikan kebutuhan interior design Anda dengan Chat Whatsapp.</small>
+                        <small>Konsultasikan semua kebutuhan interior design Anda dengan Chat Whatsapp.</small>
                         <a href="<?php mm_show_cta('whatsapp') ?>" class="about-cta abwa"><i class="fab fa-whatsapp"></i> Chat</a>
                     </div>
                     <div class="about-cta-item">

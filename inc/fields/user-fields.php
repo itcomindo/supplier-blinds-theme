@@ -44,7 +44,7 @@ function mm_show_cb_global_discount()
             $global_discount = carbon_get_user_meta($author_id, 'cb_global_discount');
             echo '<div class="arc-global-discount"><span class="arc-disc-text">Disc Up to</span><div class="arc-disc-number">' . esc_html($global_discount) . '<sup>%</sup></div>' . mm_show_post_author_login() . '</div>';
         } else {
-            $global_discount = '<div class="global-discount prod-global-discount"><div class="gdinner"><span class="loop-potongan-harga">Disc Up To</span><span class="loop-discount-number">' . carbon_get_user_meta(get_post_field('post_author', get_the_ID()), 'cb_global_discount') . '<sup class="loop-persen">%</sup></span><span class="khusus">Di area ' . (get_the_author_meta('user_login')) . ' & sekitarnya</span></div></div>';
+            $global_discount = '<div class="global-discount prod-global-discount"><div class="gdinner"><span class="loop-potongan-harga">Disc Up To</span><span class="loop-discount-number">' . carbon_get_user_meta(get_post_field('post_author', get_the_ID()), 'cb_global_discount') . '<sup class="loop-persen">%</sup></span><span class="khusus">' . (get_the_author_meta('user_login')) . ' & sekitarnya</span></div></div>';
             echo $global_discount;
         }
     }
@@ -118,28 +118,5 @@ function mm_show_cta_by_user($what = 'display')
         }
     } else {
         $text_message = 'Hallo%20Supplier%20Blinds';
-    }
-}
-
-
-
-
-function mm_show_all_user_cb_user_phone()
-{
-    $users = get_users(array(
-        'orderby' => 'display_name',
-        'order' => 'ASC'
-    ));
-    foreach ($users as $user) {
-        $name = $user->user_login;
-        $phone = carbon_get_user_meta($user->ID, 'cb_user_phone');
-        $phone = substr_replace($phone, '62', 0, 1);
-        $phone = str_replace('-', '', $phone);
-        $phone = str_replace(' ', '', $phone);
-?>
-        <div class="fcontact-item <?php echo $name; ?>">
-            <a class="fcontact-item-link" href="//api.whatsapp.com/send?phone=<?php echo esc_html($phone); ?>"><span><?php echo esc_html($name); ?></span> <span class="fcontact-item-name"><?php echo esc_html(carbon_get_user_meta($user->ID, 'cb_user_phone')); ?></span></a>
-        </div>
-<?php
     }
 }

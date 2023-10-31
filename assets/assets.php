@@ -56,6 +56,16 @@ function mm_enqueue_styles()
         }
     }
     if (is_front_page() || is_home()) {
+        wp_enqueue_style('flickity', 'https://unpkg.com/flickity@2/dist/flickity.min.css', array(), mm_theme_version(), 'all');
+
+
+
+
+
+
+
+
+
         if (mm_is_devmode()) {
             wp_enqueue_style('mm-frontpage-style', get_template_directory_uri() . '/assets/css/front-page.css', array(), mm_theme_version(), 'all');
         } else {
@@ -75,6 +85,15 @@ function mm_load_scripts()
     // dequeue jquery.
     wp_deregister_script('jquery');
     wp_enqueue_script('mm-jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js', array(), '3.7.0', true);
+
+
+    if (is_home() || is_front_page()) {
+        wp_enqueue_script('flickity', 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js', array(), mm_theme_version(), true);
+    }
+
+
+
+
     if (mm_is_devmode()) {
         wp_enqueue_script('mm-global-js', get_template_directory_uri() . '/assets/js/global.js', array(), mm_theme_version(), true);
     } else {
