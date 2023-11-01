@@ -27,21 +27,21 @@ defined('ABSPATH') || exit;
                     <div class="cta-item">
                         <i class="fab fa-whatsapp"></i>
                         <h3 class="cta-item-head">Chat Whatsapp</h3>
-                        <span class="cta-item-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, eum doloribus.</span>
+                        <span class="cta-item-text">Butuh roller blinds vertical blinds horizontal dan lainnya? mari chat dengan kami.</span>
                         <a href="<?php mm_show_cta('whatsapp'); ?>" class="cta-item-link cta-button">Chat Whatsapp</a>
                     </div>
 
                     <div class="cta-item">
                         <i class="fas fa-phone"></i>
                         <h3 class="cta-item-head">Telepon Kami</h3>
-                        <span class="cta-item-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, eum doloribus.</span>
+                        <span class="cta-item-text">Butuh wooden blinds zebra blinds PVC dan lainnya? hubungi nomor telepon kami.</span>
                         <a href="<?php mm_show_cta('phone'); ?>" class="cta-item-link cta-button">Call Us</a>
                     </div>
 
                     <div class="cta-item">
                         <i class="far fa-envelope"></i>
                         <h3 class="cta-item-head">Kirim Email</h3>
-                        <span class="cta-item-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, eum doloribus.</span>
+                        <span class="cta-item-text">Ingin proposal, penawaran pricelist produk interior design? kirim email saja.</span>
                         <a href="<?php mm_show_cta('email'); ?>" class="cta-item-link cta-button">Send an Email</a>
                     </div>
                 </div>

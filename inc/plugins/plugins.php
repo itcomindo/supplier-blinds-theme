@@ -32,3 +32,5 @@ add_filter('the_content', 'mm_ubah_h2_ke_h3');
 
 
 require_once get_template_directory() . '/inc/plugins/schema-local-business.php';
+require_once get_template_directory() . '/inc/plugins/breadcrumbs.php';
+require_once get_template_directory() . '/inc/plugins/seo.php';

@@ -77,7 +77,7 @@ function mm_load_scripts()
 {
     // dequeue jquery.
     wp_deregister_script('jquery');
-    wp_enqueue_script('mm-jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js', array(), '3.7.0', true);
+    wp_enqueue_script('mm-jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js', array(), '3.7.0', true);
 
 
     if (is_home() || is_front_page()) {

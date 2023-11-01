@@ -3,7 +3,7 @@
 * Theme Name: Supllier Blinds
 * Theme URI: https://budiharyono.com/
 * Description: Supllier Blinds
-* Version: 1.0
+* Version: 3.0.2
 *=========================
 */
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Rajdhani:wght@300;500;600;700&family=Roboto:wght@100;400;700;900&display=swap");
@@ -620,10 +620,45 @@ a.cta-button {
 *=========================
 */
 
+.archive #prod {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+#prod-head-custom-wr {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 h2#prod-setion-head {
   font-size: var(--font-clamp-9);
 }
 
+h1#prod-setion-head-custom {
+  text-align: left;
+  font-size: var(--font-clamp-4);
+}
+h2#prod-setion-subhead-custom {
+  text-align: left;
+  font-size: var(--font-clamp-3);
+}
+#prod-seo-wr {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  background-color: var(--color-accent-1-dark);
+  padding: 1rem;
+  color: white;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  box-shadow: var(--box-shadows-2);
+}
+#prod-seo-wr p {
+  line-height: 1.3;
+  margin: 4px 0;
+  font-size: 90%;
+}
 #prod-wr {
   display: flex;
   flex-direction: column;
@@ -931,7 +966,6 @@ li.fpc-item a {
 #fcontact-item-wr {
   width: 100%;
   max-width: 100%;
-  overflow: hidden;
   display: grid;
   padding: 0.25rem;
 }
@@ -978,6 +1012,61 @@ a.fcontact-item-link {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px dashed var(--transparent-light-4);
+}
+
+ul#fcontact-user-city-list-wr {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+}
+.fcontact-user-city-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+#fcontact-head-wr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.fcontact-user-city-list a {
+  color: white;
+}
+
+.fcontact-head .arc-khusus-kota {
+  display: inline-block;
+  font-size: inherit;
+}
+
+#fcontact-wr.fcontbycity {
+  height: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-top: 1rem;
+  overflow: visible;
+}
+#fcontact-wr.fcontbycity #fcontact-close {
+  top: unset;
+  bottom: -3rem;
+}
+
+#fcontact-img-wr {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: -4rem;
+  left: 0;
+}
+.cs-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /**

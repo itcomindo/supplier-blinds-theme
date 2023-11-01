@@ -55,12 +55,19 @@ function mm_show_cb_global_discount()
 /**
  * mm_show_post_author_first_name
  */
-function mm_show_post_author_login()
+function mm_show_post_author_login($what = 'display')
 {
     $author_id = get_post_field('post_author', get_the_ID());
     $author_login = get_the_author_meta('user_login', $author_id);
-    $author_login = '<span class="arc-khusus-kota"><span>Khusus Kota  </span><span>' . $author_login . '</span></span>';
-    return $author_login;
+    if ('display' === $what) {
+
+        $author_login = '<span class="arc-khusus-kota"><span>Khusus Kota  </span><span>' . $author_login . '</span></span>';
+        return $author_login;
+    } elseif ('string' === $what) {
+        echo esc_html($author_login);
+    } elseif ('string-return' === $what) {
+        return esc_html($author_login);
+    }
 }
 
 

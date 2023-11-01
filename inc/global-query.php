@@ -9,18 +9,53 @@
  */
 
 defined('ABSPATH') || exit;
-
+$domain_name = $_SERVER['HTTP_HOST'];
 ?>
 <section id="prod" class="section row">
     <div class="container">
         <div id="prod-wr">
             <div id="prod-top">
-                <h2 id="prod-setion-head" class="section-head-big">Produk</h2>
-                <span class="lw75-mw100 text-center">Hanya menjual produk-produk Window Blinds (Roller, Horizontal, Vertical, Wooden, Zebra blind) terbaik, berkualitas dengan harga terjangkau</span>
+                <?php
+                if (is_home() || is_front_page()) {
+                ?>
+                    <h2 id="prod-setion-head" class="section-head-big">Produk</h2>
+                    <span class="lw75-mw100 text-center">Hanya menjual produk-produk Window Blinds (Roller, Horizontal, Vertical, Wooden, Zebra blind) terbaik, berkualitas dengan harga terjangkau</span>
+                <?php
+                } elseif (is_category()) {
+                    //get current category name
+
+                    $category_name = single_cat_title("", false);
+                    $title = 'Jual Produk ' . single_cat_title('', false) . ' Terbaik Berkualitas Harga Murah';
+                    $description = 'Jual Produk ' . single_cat_title('', false) . ' Terbaik Berkulaitas Harga Termurah di ' . $domain_name . ' - Supplier Blinds (Distributor Tirai Window Blinds)';
+                ?>
+                    <div id="prod-head-custom-wr">
+                        <h1 id="prod-setion-head-custom" class="section-head-big"><?php echo esc_html($title); ?></h1>
+                        <span class="text-left"><?php echo $description; ?></span>
+                        <div id="prod-seo-wr">
+                            <h2 id="prod-setion-subhead-custom"><?php echo esc_html($category_name); ?></h2>
+                            <p><?php echo esc_html($category_name); ?> merupakan produk unggulan yang terbuat dari bahan material berkualitas tinggi. Setiap pembelian <?php echo esc_html($category_name); ?> disini mendapatkan kelebihan yang menarik.</p>
+                            <p>Kami merupakan supplier <?php echo esc_html($category_name); ?> di Indonesia siap untuk bekerjasama mengirim dan memasang produk <?php echo esc_html($category_name); ?> di kota Anda.</p>
+                        </div>
+                    </div>
+
+                <?php
+                } elseif (is_search()) {
+                ?>
+                    <h2 id="prod-setion-head-custom" class="section-head-big">Produk</h2>
+                    <span class="lw75-mw100 text-center">Hanya menjual produk-produk Window Blinds (Roller, Horizontal, Vertical, Wooden, Zebra blind) terbaik, berkualitas dengan harga terjangkau</span>
+                <?php
+                }
+                ?>
+
             </div>
             <div id="prod-item-wr">
                 <?php mm_show_produk_display(); ?>
             </div>
+
+
+
+
+
         </div>
     </div>
 </section>
