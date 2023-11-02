@@ -5,8 +5,6 @@
  *
  */
 
-
-
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
@@ -19,13 +17,11 @@ function mm_cb_user_fields()
         ]);
 }
 add_action('carbon_fields_register_fields', 'mm_cb_user_fields');
-
 /**
  * mm_show_cb_global_discount
  */
 function mm_show_cb_global_discount($elclass  = "arc-global-discount")
 {
-
     // $x = carbon_get_user_meta(get_post_field('post_author', get_the_ID()), 'cb_global_discount');
     if (carbon_get_user_meta(get_post_field('post_author', get_the_ID()), 'cb_global_discount')) {
         if (is_single()) {
@@ -49,9 +45,6 @@ function mm_show_cb_global_discount($elclass  = "arc-global-discount")
         }
     }
 }
-
-
-
 /**
  * mm_show_post_author_first_name
  */
@@ -68,11 +61,6 @@ function mm_show_post_author_login($what = 'display')
         return esc_html($author_login);
     }
 }
-
-
-
-
-
 /**
  * Function mm_show_cta_by_user
  */
@@ -106,7 +94,6 @@ function mm_show_cta_by_user($what = 'display')
         ));
         $post_id = $post_id[0];
         $author_id = get_post_field('post_author', $post_id);
-
         if ('whatsapp' === $what) {
             $user_phone = carbon_get_user_meta($author_id, 'cb_user_phone');
             $user_phone = substr_replace($user_phone, '62', 0, 1);
@@ -126,13 +113,6 @@ function mm_show_cta_by_user($what = 'display')
         $text_message = 'Hallo%20Supplier%20Blinds';
     }
 }
-
-
-
-
-
-
-
 function mm_user_login_name($the_id = 'user-list')
 {
     $users = get_users(array('role' => 'administrator'));

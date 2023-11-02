@@ -12,12 +12,50 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
 
 
-        function mm_footer_discount_banner_home() {
+        /**
+        =========================
+        * Desktop Whatsapp
+        *=========================
+        */
 
+        if (jQuery(window).width() > 540) {
+            mm_desktop_whatsapp();
+        }
+
+        function mm_desktop_whatsapp() {
+            var $greeting = jQuery('#greeting');
+            var $desktopWhatsapp = jQuery('#dwa');
+            var desktopWhatsappClose = jQuery('#dwa-close');
+            $greeting.click(function () {
+                jQuery(this).slideUp().removeClass('animate__backInUp');
+                $desktopWhatsapp.addClass('active');
+            });
+            desktopWhatsappClose.click(function () {
+                $desktopWhatsapp.removeClass('active');
+                $greeting.slideDown().addClass('animate__backInUp');
+            });
+
+        }
+
+
+
+
+        /**
+        =========================
+        *NAME: mm_footer_discount_banner_home
+        *=========================
+        */
+        function mm_footer_discount_banner_home() {
             jQuery('.global-discount.fm-banner').click(function () {
                 jQuery('#fm-berlaku').toggleClass('active');
             });
         }
+
+        /**
+        =========================
+        *NAME: mm_footer_discount_banner_single
+        *=========================
+        */
         function mm_footer_discount_banner_single() {
             jQuery('.arc-global-discount.footer').click(function () {
                 jQuery('#fm-berlaku').toggleClass('active');

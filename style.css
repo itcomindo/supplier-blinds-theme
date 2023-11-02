@@ -28,8 +28,8 @@
   --color-text: #333333;
   --color-accent-1: #ff4500;
   --color-accent-1-dark: #bd3c00;
-  --color-accent-2: #008000;
-  --color-accent-2-dark: #006400;
+  --color-accent-2: #d6383b;
+  --color-accent-2-dark: #630f11;
   --color-accent-3: #0000ff;
   --color-accent-3-dark: #00008b;
   --color-accent-4: #ffff00;
@@ -1325,6 +1325,149 @@ ul#fcontact-user-city-list-wr {
 
 /**
 =========================
+* Greeting
+* @todo Greeting
+*=========================
+*/
+
+#greeting {
+  position: fixed;
+  bottom: 3rem;
+  right: 6rem;
+  width: 125px;
+  padding: 0.5rem;
+  line-height: 1;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  z-index: 5555;
+  background: linear-gradient(
+    to bottom,
+    var(--color-accent-1),
+    var(--color-accent-1-dark)
+  );
+  box-shadow: 0 0 1rem var(--transparent-dark-4) inset;
+  border-radius: 15px;
+  text-align: center;
+  cursor: pointer;
+}
+#greeting-cs-image {
+  position: absolute;
+  width: 80px;
+  top: calc(-100% - 0.88rem);
+}
+#greeting-cs-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#greeting:after {
+  content: "";
+  height: 1rem;
+  width: 75%;
+  position: absolute;
+  bottom: -1.2rem;
+  background-color: var(--transparent-dark-3);
+  border-radius: 50%;
+  filter: blur(3px);
+  opacity: 0.5;
+}
+
+/**
+=========================
+* Desktop Whatsapp
+* @todo Desktop Whatsapp
+*=========================
+*/
+
+#dwa {
+  display: flex;
+  position: fixed;
+  bottom: 6rem;
+  right: 1rem;
+  width: 300px;
+  z-index: 4444;
+  padding: 1rem 0.8rem;
+  background-color: blueviolet;
+  color: black;
+  border-radius: 15px;
+  box-shadow: 0 0 0.5rem var(--transparent-dark-4);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s linear all;
+}
+
+#dwa.active {
+  display: flex;
+  position: fixed;
+  bottom: 6rem;
+  right: 1rem;
+  width: 300px;
+  z-index: 4444;
+  padding: 1rem 0.8rem;
+  background-color: blueviolet;
+  color: black;
+  border-radius: 15px;
+  box-shadow: 0 0 0.5rem var(--transparent-dark-4);
+  visibility: visible;
+  opacity: 1;
+  transition: 0.3s linear all;
+}
+
+#dwa a {
+  color: black;
+}
+#dwa-close {
+  position: absolute;
+  bottom: -5rem;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+#dwa-item-wr {
+  display: grid;
+  gap: 1rem;
+}
+a.dwa-item i {
+  margin-right: 6px;
+}
+a.dwa-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0;
+  border-radius: 7px;
+  box-shadow: 0 0 0.2rem var(--transparent-dark-4);
+}
+
+a.dwa-wa {
+  background: linear-gradient(to bottom, green, darkgreen);
+  color: white !important;
+}
+a.dwa-call {
+  background: linear-gradient(
+    to bottom,
+    var(--color-accent-1),
+    var(--color-accent-1-dark)
+  );
+  color: white !important;
+}
+
+/**
+=========================
 * Media Query Start
 * @todo Media Query Start
 *=========================
@@ -1431,6 +1574,9 @@ ul#fcontact-user-city-list-wr {
 *=========================
 */
 @media screen and (max-width: 540px) {
+  #greeting {
+    display: none;
+  }
   #header-menu {
     display: none;
   }

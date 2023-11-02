@@ -57,6 +57,7 @@ defined('ABSPATH') || exit;
 
 
 get_template_part('inc/components/contact-modal');
+get_template_part('inc/components/desktop-whatsapp');
 mm_show_category_menu('fpc-home');
 get_template_part('template-parts/footer/footer-menu');
 get_template_part('inc/components/search-modal');

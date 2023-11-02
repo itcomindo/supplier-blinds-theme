@@ -42,6 +42,18 @@ function mm_show_kantor_pusat_phone($what = 'display')
             echo esc_html(carbon_get_theme_option('phone'));
         } elseif ('string' === $what) {
             return esc_html(carbon_get_theme_option('phone'));
+        } elseif ('whatsapp' === $what) {
+            $x = substr_replace(carbon_get_theme_option('phone'), '62', 0, 1);
+            $x = str_replace('-', '', $x);
+            $x = str_replace(' ', '', $x);
+            $x = '//api.whatsapp.com/send?phone=' . $x;
+            echo esc_html($x);
+        } elseif ('phone' === $what) {
+            $x = substr_replace(carbon_get_theme_option('phone'), '62', 0, 1);
+            $x = str_replace('-', '', $x);
+            $x = str_replace(' ', '', $x);
+            $x = 'tel:+' . $x;
+            echo esc_html($x);
         }
     }
 }
