@@ -41,6 +41,7 @@ function mm_show_category_menu($the_id = 'fpc')
         "Motorized Blinds" => 6,
         "Outdoor Blinds" => 7,
         "PVC Blinds" => 8,
+        "Tirai Blinds" => 9,
     );
 
     // Mengurutkan kategori.

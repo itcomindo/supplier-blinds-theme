@@ -907,6 +907,9 @@ li.fpc-item a {
 #fpc-home .fpc-item-link {
   color: white;
 }
+#fpc-home .fpc-item-link:hover {
+  color: var(--color-accent-1);
+}
 
 /**
 =========================

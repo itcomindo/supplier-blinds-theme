@@ -103,15 +103,33 @@ img.arc-fim {
 #arc-content {
   padding-top: 3rem;
   padding-bottom: 3rem;
+  background-color: #ddd;
+}
+#arc-content .container {
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(255, 255, 255, 0.1) 10%,
+      #f8f8f8
+    )
+    100%;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
 }
 #arc-content #the-content {
-  width: 800px;
+  width: 991px;
   max-width: 100%;
   margin: -9rem auto 0 auto;
-  background-color: tan;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.5),
+    tan
+  );
   z-index: 2;
   padding: calc(2rem + 50px) 2rem;
-  border-radius: 10px 10px 0 0;
+  border-radius: 15px;
+  box-shadow: 0 0 1rem var(--transparent-dark-3);
 }
 
 .arc-global-discount {
@@ -133,7 +151,7 @@ img.arc-fim {
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
-  top: -50px;
+  top: -12rem;
   border-radius: var(--border-radius-full);
 }
 
@@ -171,6 +189,21 @@ img.arc-fim {
   align-items: center;
   justify-content: center;
   line-height: 1;
+}
+
+#arc-content-wr {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+/**
+=========================
+* Related Post
+*=========================
+*/
+#related-post-wr {
+  width: 100%;
+  padding: 1rem 1rem 2rem 1rem;
 }
 
 /**

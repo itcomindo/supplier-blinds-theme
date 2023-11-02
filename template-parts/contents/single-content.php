@@ -59,6 +59,15 @@ if (is_single()) {
                 <h2 id="the-content-head" class="section-head-medium"><?php echo esc_html(get_the_title()); ?></h2>
                 <?php the_content(); ?>
             </div>
+
+
+            <div id="related-post-wr">
+                <h3 id="related-post-head" class="section-head">Produk Terkait: </h3>
+                <?php
+                get_template_part('inc/related-post');
+                ?>
+            </div>
         </div>
+
     </div>
 </section>
