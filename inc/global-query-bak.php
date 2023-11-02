@@ -97,8 +97,8 @@ function mm_show_produk_display()
         );
     } else {
         $args = array(
-            'posts_per_page' => -1,  // Tampilkan 10 post per halaman.
-            'orderby' => 'date',  // Urutkan secara acak.
+            'posts_per_page' => 10,  // Tampilkan 10 post per halaman.
+            'orderby' => 'rand',  // Urutkan secara acak.
         );
     }
 
@@ -118,7 +118,7 @@ function mm_show_produk_display()
                 ?>
                 <div class="prod-item-top">
                     <a href="<?php the_permalink(); ?>" title="Nama Produk">
-                        <img class="find-this" src="<?php echo mm_custom_featured_image(); ?>" title="<?php echo get_the_title(); ?>" alt="<?php echo get_the_title(); ?>" title="<?php echo get_the_title(); ?>">
+                        <?php echo the_post_thumbnail('full', ['alt' => get_the_title(), 'title' => get_the_title()]) ?>
                     </a>
                     <span class="prod-author"><?php echo esc_html(get_the_author_meta('user_login')); ?></span>
                 </div>

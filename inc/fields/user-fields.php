@@ -23,14 +23,14 @@ add_action('carbon_fields_register_fields', 'mm_cb_user_fields');
 /**
  * mm_show_cb_global_discount
  */
-function mm_show_cb_global_discount()
+function mm_show_cb_global_discount($elclass  = "arc-global-discount")
 {
 
     // $x = carbon_get_user_meta(get_post_field('post_author', get_the_ID()), 'cb_global_discount');
     if (carbon_get_user_meta(get_post_field('post_author', get_the_ID()), 'cb_global_discount')) {
         if (is_single()) {
             $global_discount = carbon_get_user_meta(get_post_field('post_author', get_the_ID()), 'cb_global_discount');
-            echo '<div class="arc-global-discount"><span class="arc-disc-text">Disc Up to</span><div class="arc-disc-number">' . esc_html($global_discount) . '<sup>%</sup></div><span>' . mm_show_post_author_login() . '<span></div>';
+            echo '<div class="' . $elclass . '"><span class="arc-disc-text">Disc Up to</span><div class="arc-disc-number">' . esc_html($global_discount) . '<sup>%</sup></div><span>' . mm_show_post_author_login() . '<span></div>';
         } elseif (is_tag()) {
             $tag_id = get_queried_object()->term_id;
             $post_id = get_posts(array(
@@ -42,7 +42,7 @@ function mm_show_cb_global_discount()
             $post_id = $post_id[0];
             $author_id = get_post_field('post_author', $post_id);
             $global_discount = carbon_get_user_meta($author_id, 'cb_global_discount');
-            echo '<div class="arc-global-discount"><span class="arc-disc-text">Disc Up to</span><div class="arc-disc-number">' . esc_html($global_discount) . '<sup>%</sup></div>' . mm_show_post_author_login() . '</div>';
+            echo '<div class="' . $elclass . '"><span class="arc-disc-text">Disc Up to</span><div class="arc-disc-number">' . esc_html($global_discount) . '<sup>%</sup></div>' . mm_show_post_author_login() . '</div>';
         } else {
             $global_discount = '<div class="global-discount prod-global-discount"><div class="gdinner"><span class="loop-potongan-harga">Disc Up To</span><span class="loop-discount-number">' . carbon_get_user_meta(get_post_field('post_author', get_the_ID()), 'cb_global_discount') . '<sup class="loop-persen">%</sup></span><span class="khusus">' . (get_the_author_meta('user_login')) . ' & sekitarnya</span></div></div>';
             echo $global_discount;
@@ -60,8 +60,7 @@ function mm_show_post_author_login($what = 'display')
     $author_id = get_post_field('post_author', get_the_ID());
     $author_login = get_the_author_meta('user_login', $author_id);
     if ('display' === $what) {
-
-        $author_login = '<span class="arc-khusus-kota"><span>Khusus Kota  </span><span>' . $author_login . '</span></span>';
+        $author_login = '<span class="arc-khusus-kota"><span>Khusus </span><span>' . $author_login . '</span></span>';
         return $author_login;
     } elseif ('string' === $what) {
         echo esc_html($author_login);
@@ -126,4 +125,22 @@ function mm_show_cta_by_user($what = 'display')
     } else {
         $text_message = 'Hallo%20Supplier%20Blinds';
     }
+}
+
+
+
+
+
+
+
+function mm_user_login_name($the_id = 'user-list')
+{
+    $users = get_users(array('role' => 'administrator'));
+    echo '<ul id="' . esc_html($the_id) . '">';
+    foreach ($users as $user) {
+?>
+        <li class="<?php echo esc_html($user->user_login); ?>"><?php echo esc_html($user->user_login); ?></li>
+<?php
+    }
+    echo '</ul>';
 }

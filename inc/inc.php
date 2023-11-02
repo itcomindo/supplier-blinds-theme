@@ -6,6 +6,7 @@
  * @author Budi Haryono <mail.budiharyono@gmail.com>
  */
 defined('ABSPATH') || exit;
+require_once get_template_directory() . '/inc/components/custom-featured-image.php';
 require_once get_template_directory() . '/inc/fields/theme-options.php';
 require_once get_template_directory() . '/inc/fields/user-fields.php';
 require_once get_template_directory() . '/inc/plugins/plugins.php';

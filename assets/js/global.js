@@ -5,8 +5,23 @@ window.addEventListener('DOMContentLoaded', (event) => {
         // get body class
         var $bodyClass = jQuery('body').attr('class');
         if ($bodyClass.includes('home')) {
-            // mm_rotate_global_discount_banner_on_home_hero();
             mm_rekanan_slider();
+            mm_footer_discount_banner_home();
+        } else if ($bodyClass.includes('single')) {
+            mm_footer_discount_banner_single();
+        }
+
+
+        function mm_footer_discount_banner_home() {
+
+            jQuery('.global-discount.fm-banner').click(function () {
+                jQuery('#fm-berlaku').toggleClass('active');
+            });
+        }
+        function mm_footer_discount_banner_single() {
+            jQuery('.arc-global-discount.footer').click(function () {
+                jQuery('#fm-berlaku').toggleClass('active');
+            });
         }
 
 
@@ -65,7 +80,27 @@ window.addEventListener('DOMContentLoaded', (event) => {
         */
         function mm_rekanan_image_width_detector() {
             var imgs = jQuery('img.rekanan-img');
-            // Cari lebar dan tinggi gambar, kemudian buat atribut lebar dan tinggi.
+            imgs.each(function () {
+                var ini = jQuery(this);
+                var w = ini.width();
+                var h = ini.height();
+                ini.attr('width', w);
+                ini.attr('height', h);
+            });
+        }
+
+
+        /**
+        =========================
+        * Rekanan Image Width Detector
+        *=========================
+        */
+        mm_find_image_width_height();
+        jQuery(window).resize(function () {
+            mm_find_image_width_height();
+        });
+        function mm_find_image_width_height() {
+            var imgs = jQuery('img.find-this');
             imgs.each(function () {
                 var ini = jQuery(this);
                 var w = ini.width();
@@ -87,11 +122,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
             var teksBaru = teksLama.replace(teksLama, 'Promo Upto');
             jQuery('.global-discount.fm-banner .potongan-harga').text(teksBaru);
         }
-
-        jQuery('.global-discount.fm-banner').click(function () {
-            jQuery('#fm-berlaku').toggleClass('active');
-        });
-
 
         /**
         =========================

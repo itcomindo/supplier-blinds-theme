@@ -71,7 +71,19 @@ function mm_seo()
         $title = 'Supplier Blinds (Distributor Tirai Window Blinds) Interior Design Lengkap dan Murah';
         $description = 'Supplier Toko Agen Distributor Roller Blinds, Vertical Blinds, Roman Shades, Gordyn, Horizontal Blinds, Wooden Blinds, Zebra Blinds, Outdoor Blinds, PVC Blinds, Gorden Rumah Sakit dan Interior Design Lainnya';
         $robots = 'index, follow';
-    } elseif (is_single() || is_page()) {
+    } elseif (is_single() && has_category('Supplier')) {
+        $author_login_name = get_the_author_meta('user_login', get_post_field('post_author', get_the_ID()));
+        $title = get_the_title();
+        $description = substr($title . ' Agen Distributor Vendor Kontraktor Harga Tirai Gorden Window Roller Horizontal Vertical Venetian ' . $author_login_name, 0, 160) . ' Blinds Terbaru ' . date('Y');
+        $robots = 'index, follow';
+    } elseif (is_single() && !has_category('Supplier')) {
+        $catname = get_the_category();
+        $catname = $catname[0]->cat_name;
+        $title = 'Jual ' . get_the_title() . ' Harga ' . get_the_title() . ' Terbaru ' . date('Y');
+        $excerpt = $title . ' Supplier Distributor '  . $catname . ' ' . get_the_excerpt();
+        $description = substr($excerpt, 0, 160);
+        $robots = 'index, follow';
+    } elseif (is_page()) {
         $title = get_the_title();
         $description = substr(get_the_title() . ' ' . get_the_excerpt(), 0, 160);
         $robots = 'index, follow';
@@ -83,9 +95,15 @@ function mm_seo()
         $title = 'Supplier Produk Interior Design Tirai Gorden Window Blinds Terlengkap dan Termurah';
         $description = 'Supplier Toko Agen Distributor Roller Blinds, Vertical Blinds, Roman Shades, Gordyn, Horizontal Blinds, Wooden Blinds, Zebra Blinds, Outdoor Blinds, PVC Blinds, Gorden Rumah Sakit dan Interior Design Lainnya';
         $robots = 'index, follow';
-    } elseif (is_tag()) {
+    } elseif (is_tag() && has_category('Supplier')) {
         $title = single_tag_title('', false);
-        $description = single_tag_title('', false) . ' Terbaru dan Terlengkap di ' . $domain_name;
+        $description = single_tag_title('', false) . ' Supplier Distributor Vendor Agen Tirai Gorden Roller Vertical Horizontal Wooden Zebra Indoor Outdoor Blind Paling Murah';
+        $robots = 'index, follow';
+    } elseif (is_tag() && !has_category('Supplier')) {
+        $catname = get_the_category();
+        $catname = $catname[0]->cat_name;
+        $title = 'Jual ' . single_tag_title('', false);
+        $description = $title . ' Harga ' . $catname . ' Terbaru dari Supplier Distributor Vendor Agen ' . $catname . ' ' . date('Y') . ' ' . $domain_name;
     } elseif (is_author()) {
         $title = get_the_author_meta('display_name');
         $description = 'Supplier Distributor Agen Toko Jual Window Blinds di ' . get_the_author_meta('display_name');
@@ -97,9 +115,6 @@ function mm_seo()
         $title = 'Ups! Halaman Tidak Ditemukan';
         $description = 'Halaman yang anda cari tidak ditemukan';
         $robots = 'noindex, nofollow';
-    } else {
-        $title = get_bloginfo('name');
-        $description = get_bloginfo('description');
     }
     echo '<title>' . $title . "</title>\n";
     echo '<meta name="description" content="' . $description . "\">\n";
@@ -108,6 +123,7 @@ function mm_seo()
     }
 
 
+    // Open Graph start below
     echo "<meta property='og:title' content='$title' />\n";
     echo "<meta property='og:description' content='$description' />\n";
     if (is_single()) {

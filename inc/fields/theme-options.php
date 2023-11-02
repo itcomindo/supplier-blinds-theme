@@ -20,39 +20,48 @@ function mm_theme_options()
 {
     Container::make('theme_options', 'Theme Options')
         ->add_fields([
+            Field::make('textarea', 'alamat', 'Alamat'),
             Field::make('text', 'phone', 'Phone Number'),
             Field::make('text', 'email', 'Email'),
             Field::make('text', 'global_discount', 'Global Discount'),
             Field::make('text', 'city_global_discount', 'Global Discount Berlaku di Kota'),
-
-
-            Field::make('separator', 'globaldiscountsep', 'Global Discount By Kota')
-                ->set_classes('cb-separator'),
-
-
-            Field::make('complex', 'discount_by_kota', 'Global Discount by Kota')
-                ->set_layout('tabbed-horizontal')
-                ->add_fields([
-                    Field::make('text', 'gdisc_city', 'Kota'),
-                    Field::make('text', 'gdisc_discount', 'Discount'),
-                ]),
-
-
-            Field::make('separator', 'csbycitysep', 'Customer Service By Kota')
-                ->set_classes('cb-separator'),
-            Field::make('complex', 'cs_by_city', 'CS By Kota')
-                ->set_layout('tabbed-horizontal')
-                ->add_fields([
-                    Field::make('text', 'cs_city', 'Kota'),
-                    Field::make('text', 'cs_city_phone', 'Phone'),
-                ]),
-
         ]);
 }
 add_action('carbon_fields_register_fields', 'mm_theme_options');
 
 
+/**
+ * Function mm_show_kantor_pusat_phone
+ *
+ * @param string $what What to show (display, string) Default: display no need echo
+ */
+function mm_show_kantor_pusat_phone($what = 'display')
+{
+    if (carbon_get_theme_option('phone')) {
+        if ('display' === $what) {
+            echo esc_html(carbon_get_theme_option('phone'));
+        } elseif ('string' === $what) {
+            return esc_html(carbon_get_theme_option('phone'));
+        }
+    }
+}
 
+
+
+
+/**
+ * Function mm_show_alamat
+ */
+function mm_show_alamat($what = 'echo')
+{
+    if (carbon_get_theme_option('alamat')) {
+        if ('echo' === $what) {
+            echo esc_html(carbon_get_theme_option('alamat'));
+        } else {
+            return esc_html(carbon_get_theme_option('alamat'));
+        }
+    }
+}
 
 
 /**
