@@ -101,7 +101,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 prevNextButtons: false,
                 autoPlay: false,
                 wrapAround: true,
-                // pageDots: false,
+                pageDots: false,
             });
 
             mm_rekanan_image_width_detector();

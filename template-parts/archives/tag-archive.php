@@ -64,7 +64,6 @@ function mm_show_tag_content()
             mm_tag_with_category_supplier();
         } else {
             mm_tag_with_category_supplier();
-            // mm_tag_with_category_non_supplier();
         }
     }
 }
@@ -86,7 +85,15 @@ function mm_tag_with_category_supplier()
             </div>
         </div>
         <div id="arc-right" class="arc-col">
-            <?php the_post_thumbnail('full', array('title' => esc_html(single_tag_title('', false)), 'class' => 'arc-fim', 'alt' => esc_html(single_tag_title('', false)))); ?>
+            <?php
+            if (has_post_thumbnail()) {
+                the_post_thumbnail('full', array('title' => esc_html(single_tag_title('', false)), 'class' => 'arc-fim', 'alt' => esc_html(single_tag_title('', false))));
+            } else {
+            ?>
+                <img class="arc-fim find-this" src="<?php echo mm_custom_featured_image(); ?>" alt="Photo <?php echo get_the_title(); ?>" title="Photo <?php echo get_the_title(); ?>">
+            <?php
+            }
+            ?>
         </div>
     </div>
 <?php
@@ -97,7 +104,7 @@ function mm_tag_with_category_supplier()
 function mm_tag_with_category_non_supplier()
 {
 ?>
-    <div id="arc-wr" class="produk">
+    <div id=" arc-wr" class="produk">
         <h1>Produk</h1>
     </div>
 <?php

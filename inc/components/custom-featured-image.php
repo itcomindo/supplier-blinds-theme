@@ -22,6 +22,20 @@ function mm_custom_featured_image()
         if ($featured_image) {
             return esc_url($featured_image);
         }
+    } elseif (is_tag()) {
+        $tag_id = get_queried_object()->term_id;
+        $post_id = get_posts(array(
+            'numberposts' => 1,
+            'tag_id' => $tag_id,
+            'post_type' => 'post',
+            'fields' => 'ids'
+        ));
+        $post_id = $post_id[0];
+        $jenis = get_field('jenis_blinds', $post_id);
+        $featured_image = mm_get_custom_featured_image($jenis);
+        if ($featured_image) {
+            return esc_url($featured_image);
+        }
     } else {
         $jenis = get_field('jenis_blinds');
         $featured_image = mm_get_custom_featured_image($jenis);
