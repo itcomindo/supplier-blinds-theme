@@ -46,7 +46,7 @@ function mm_show_greeting()
                 <a href="<?php mm_show_kantor_pusat_phone('whatsapp'); ?>" class="dwa-item dwa-wa" rel="noopener" title="customer service"><i class="fab fa-whatsapp"></i> Chat</a>
                 <a href="<?php mm_show_kantor_pusat_phone('phone'); ?>" class="dwa-item dwa-call" rel="noopener" title="customer service"><i class="fas fa-phone"></i> Call</a>
             <?php
-            } elseif (is_single()) {
+            } elseif (is_single() || is_tag()) {
             ?>
                 <a href="<?php mm_show_cta_by_user('whatsapp'); ?>" class="dwa-item dwa-wa" rel="noopener" title="customer service"><i class="fab fa-whatsapp"></i> Chat</a>
                 <a href="<?php mm_show_cta_by_user('phone'); ?>" class="dwa-item dwa-call" rel="noopener" title="customer service"><i class="fas fa-phone"></i> Call</a>

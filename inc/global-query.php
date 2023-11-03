@@ -97,8 +97,8 @@ function mm_show_produk_display()
         );
     } else {
         $args = array(
-            'posts_per_page' => -1,  // Tampilkan 10 post per halaman.
-            'orderby' => 'date',  // Urutkan secara acak.
+            'posts_per_page' => 10,  // Tampilkan 10 post per halaman.
+            'orderby' => 'rand',  // Urutkan secara acak.
         );
     }
 
