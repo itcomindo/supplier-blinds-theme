@@ -142,12 +142,22 @@ require_once get_template_directory() . '/inc/inc.php';
 require get_template_directory() . '/assets/assets.php';
 
 
-// Menonaktifkan pemeriksaan kecocokan kata sandi untuk user baru.
-function mm_disable_password_check($errors, $update, $user)
+add_action('wp_ajax_mm_search_author_posts', 'mm_search_author_posts_handler');
+add_action('wp_ajax_nopriv_mm_search_author_posts', 'mm_search_author_posts_handler');
+
+function mm_search_author_posts_handler()
 {
-	// Menghapus error "Passwords do not match" jika ada.
-	if ($errors->get_error_message('pass') == 'Passwords do not match. Please enter the same password in both password fields.') {
-		$errors->remove('pass');
+	// Pastikan ID penulis dan ID kategori diset dan tidak kosong.
+	if (isset($_POST['author_id']) && isset($_POST['cat_id'])) {
+		$authorID = intval($_POST['author_id']); // Sanitasi untuk keamanan.
+		$catID = intval($_POST['cat_id']); // Sanitasi untuk keamanan.
+
+		// Anda dapat menambahkan link ke search page dengan parameter query.
+		// Misalnya: /search-page?author=1&category=2
+		$response = array('link' => home_url('/search-page/?author=' . $authorID . '&category=' . $catID));
+
+		wp_send_json_success($response);
+	} else {
+		wp_send_json_error(array('message' => 'Penulis atau kategori tidak ditemukan.'));
 	}
 }
-add_action('user_profile_update_errors', 'mm_disable_password_check', 10, 3);

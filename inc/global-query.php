@@ -112,8 +112,6 @@ function mm_show_produk_display()
             $query->the_post();
 ?>
             <div class="prod-item">
-                <?php
-                ?>
                 <div class="prod-item-top">
                     <a href="<?php the_permalink(); ?>" title="Nama Produk">
                         <img class="find-this" src="<?php echo mm_custom_featured_image(); ?>" title="<?php echo get_the_title(); ?>" alt="<?php echo get_the_title(); ?>" title="<?php echo get_the_title(); ?>">

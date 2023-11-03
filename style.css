@@ -1513,8 +1513,51 @@ a.dwa-call {
 
 /**
 =========================
+* Author Page
+* @todo author page
+*=========================
+*/
+#aut {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+ul#aut-cat-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+  gap: 8px 16px;
+}
+ul#aut-cat-top li {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 8px;
+  border: 1px solid var(--transparent-dark-4);
+  font-size: 14px;
+}
+
+ul#aut-bot-list-wr {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+ul#aut-bot-list-wr li {
+  padding: 8px 16px;
+  font-size: 14px;
+  line-height: 1.2;
+  border-bottom: 1px dashed var(--transparent-dark-1);
+}
+
+/**
+=========================
 * Media Query Start
-* @todo Media Query Start
+* @todo Media Query Start Style.css
 *=========================
 */
 
