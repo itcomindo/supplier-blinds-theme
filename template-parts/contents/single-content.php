@@ -11,6 +11,8 @@ defined('ABSPATH') || exit;
 if (is_single()) {
     $posid = get_the_ID();
     $pcname = get_the_category($posid)[0]->name;
+    // author login name
+    $author = mm_show_post_author_login('string-return');
 }
 ?>
 <section id="arc" class="section">
@@ -61,7 +63,7 @@ if (is_single()) {
             </div>
 
 
-            <div id="related-post-wr">
+            <div id="related-post-wr" data-author="<?php echo esc_html($author); ?>">
                 <h3 id="related-post-head" class="section-head">Produk Terkait: </h3>
                 <?php
                 get_template_part('inc/related-post');

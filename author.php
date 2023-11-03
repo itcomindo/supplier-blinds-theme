@@ -62,9 +62,7 @@ function mm_show_all_post_category_for_author()
             if (!in_array($category->slug, $exclude_slugs)) {
                 // Mendapatkan link ke arsip kategori.
                 $category_link = get_category_link($category->term_id);
-
-                // Menampilkan list item dengan link dan nama kategori.
-                echo '<li data-cat="' . esc_attr($category->slug) . '"><a href="' . esc_url($category_link) . '">' . esc_html($category->name) . '</a></li>'; // Mencetak elemen li dengan link kategori.
+                echo '<li class="cat-filter" data-cat="' . esc_attr($category->slug) . '">' . esc_html($category->name) . '</li>'; // Mencetak elemen li dengan link kategori.
             }
         }
 
@@ -95,8 +93,14 @@ function mm_show_post_by_author()
             $cat = get_the_category();
             $cat = $cat[0];
             $cat_name = $cat->slug;
+            $title = get_the_title();
 ?>
-            <li class="aut-filter" data-cat="<?php echo $cat_name; ?>"><?php echo the_title(); ?></li>
+            <li class="aut-filter show" data-cat="<?php echo $cat_name; ?>">
+                <a href="<?php the_permalink(); ?>">
+                    <div class="aut-fim-wr"><img src="<?php echo mm_custom_featured_image(); ?>" alt=""></div>
+                    <div class="aut-title"><?php echo the_title(); ?></div>
+                </a>
+            </li>
 <?php
         }
     }
@@ -106,20 +110,46 @@ function mm_show_post_by_author()
 
 <script>
     jQuery(function() {
-        // Mengambil teks yang akan difilter berdasarkan data-author pada #aut-bot.
-        var authorToFilter = jQuery.trim(jQuery('#aut-bot').data('author').toString());
 
-        // Mengiterasi setiap li dengan kelas 'aut-filter'.
-        jQuery('#aut-bot-list-wr .aut-filter').each(function() {
-            // Mengambil teks dari elemen li saat ini.
-            var liText = jQuery(this).text();
+        /**
+        =========================
+        * Replace text in element
+        *=========================
+        */
+        mm_opopop();
 
-            // Memeriksa apakah teks elemen li mengandung teks yang akan difilter.
-            if (liText.indexOf(authorToFilter) !== -1) {
-                // Mengganti teks yang cocok dengan string kosong.
-                var newLiText = liText.replace(authorToFilter, '');
-                jQuery(this).text(newLiText);
-            }
+        function mm_opopop() {
+            var authorToFilter = jQuery.trim(jQuery('#aut-bot').data('author').toString());
+            jQuery('#aut-bot-list-wr .aut-filter a .aut-title').each(function() {
+                var liText = jQuery(this).text();
+                if (liText.indexOf(authorToFilter) !== -1) {
+                    var newLiText = liText.replace(authorToFilter, '');
+                    jQuery(this).text(newLiText);
+                }
+            });
+        }
+
+        /**
+        =========================
+        * Filter Post By data-cat
+        *=========================
+        */
+
+        jQuery('.cat-filter').click(function() {
+            var dataCat = jQuery(this).data('cat');
+            var autToFilter = jQuery('.aut-filter');
+            console.log(dataCat);
+            autToFilter.slideUp();
+            autToFilter.each(function() {
+                var autCat = jQuery(this).data('cat');
+                if (autCat === dataCat) {
+                    jQuery(this).slideDown();
+                }
+            });
         });
+
+
+
+
     });
 </script>

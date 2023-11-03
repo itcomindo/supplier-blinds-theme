@@ -1,13 +1,17 @@
 <?php
 
 /**
- * Page Template
+ * Tag.php
  *
-
+ * @package MasmonsTheme
  * @author Budi Haryono <mail.budiharyono@gmail.com>
-
+ * @since 019
  */
+
 defined('ABSPATH') || exit;
+
 get_header();
-get_template_part('template-parts/contents/page-content');
+
+get_template_part('template-parts/archives/tag-archive');
+
 get_footer();

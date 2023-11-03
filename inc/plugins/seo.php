@@ -73,12 +73,8 @@ function mm_seo()
         $robots = 'index, follow';
     }
 
-    if (is_single() && has_category('Supplier')) {
-        $author_login_name = get_the_author_meta('user_login', get_post_field('post_author', get_the_ID()));
-        $title = get_the_title();
-        $description = substr($title . ' Agen Distributor Vendor Kontraktor Harga Tirai Gorden Window Roller Horizontal Vertical Venetian ' . $author_login_name, 0, 160) . ' Blinds Terbaru ' . date('Y');
-        $robots = 'index, follow';
-    }
+
+
     if (is_single() && !has_category('Supplier')) {
         $catname = get_the_category();
         $catname = $catname[0]->cat_name;
@@ -86,20 +82,19 @@ function mm_seo()
         $excerpt = $title . ' Supplier Distributor '  . $catname . ' ' . get_the_excerpt();
         $description = substr($excerpt, 0, 160);
         $robots = 'index, follow';
-    }
-
-    if (is_page()) {
+    } elseif (is_single() && has_category('Supplier')) {
+        $title = get_the_title();
+        $description = substr($title . ' Agen Distributor Vendor Kontraktor Harga Tirai Gorden Window Roller Horizontal Vertical Venetian ' . $author_login_name, 0, 160) . ' Blinds Terbaru ' . date('Y');
+        $robots = 'index, follow';
+    } elseif (is_page()) {
         $title = get_the_title();
         $description = substr(get_the_title() . ' ' . get_the_excerpt(), 0, 160);
         $robots = 'index, follow';
-    }
-    if (!is_category('Supplier')) {
+    } elseif (!is_category('Supplier')) {
         $title = 'Jual Produk ' . single_cat_title('', false) . ' Terbaik Berkualitas Harga Murah';
         $description = 'Jual Produk ' . single_cat_title('', false) . ' Terbaik Berkulaitas Harga Termurah di ' . $domain_name . ' - Supplier Blinds (Distributor Tirai Window Blinds)';
         $robots = 'index, follow';
-    }
-
-    if (is_category('Supplier') && !is_category('Supplier')) {
+    } elseif (is_category('Supplier')) {
         $title = 'Supplier Produk Interior Design Tirai Gorden Window Blinds Terlengkap dan Termurah';
         $description = 'Supplier Toko Agen Distributor Roller Blinds, Vertical Blinds, Roman Shades, Gordyn, Horizontal Blinds, Wooden Blinds, Zebra Blinds, Outdoor Blinds, PVC Blinds, Gorden Rumah Sakit dan Interior Design Lainnya';
         $robots = 'index, follow';
@@ -108,7 +103,7 @@ function mm_seo()
     if (is_author()) {
         //get author login
         $title = get_the_author_meta('user_login', get_post_field('post_author', get_the_ID()));
-        $title = 'Supplier Distributor Roller Horizontal Vertical Blinds ' . $title;;
+        $title = 'Supplier Distributor Roller Horizontal Vertical Blinds ' . $title;
         $description = $title . 'Supplier Distributor Agen Toko Jual Window Blinds di ' . get_the_author_meta('display_name');
         $robots = 'index, follow';
     }
