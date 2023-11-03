@@ -67,15 +67,11 @@ add_action('rss2_ns', 'mm_noindex_feed');
 function mm_seo()
 {
     $domain_name = $_SERVER['HTTP_HOST'];
-    if (is_home() || is_front_page()) {
+    if (is_front_page()) {
         $title = 'Supplier Blinds (Distributor Tirai Window Blinds) Interior Design Lengkap dan Murah';
         $description = 'Supplier Toko Agen Distributor Roller Blinds, Vertical Blinds, Roman Shades, Gordyn, Horizontal Blinds, Wooden Blinds, Zebra Blinds, Outdoor Blinds, PVC Blinds, Gorden Rumah Sakit dan Interior Design Lainnya';
         $robots = 'index, follow';
-    }
-
-
-
-    if (is_single() && !has_category('Supplier')) {
+    } elseif (is_single() && !has_category('Supplier')) {
         $catname = get_the_category();
         $catname = $catname[0]->cat_name;
         $title = 'Jual ' . get_the_title() . ' Harga ' . get_the_title() . ' Terbaru ' . date('Y');

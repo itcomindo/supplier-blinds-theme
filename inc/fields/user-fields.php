@@ -19,6 +19,7 @@ function mm_cb_user_fields()
 add_action('carbon_fields_register_fields', 'mm_cb_user_fields');
 /**
  * mm_show_cb_global_discount
+ * @param string $elclass class of the element
  */
 function mm_show_cb_global_discount($elclass  = "arc-global-discount")
 {
@@ -47,6 +48,7 @@ function mm_show_cb_global_discount($elclass  = "arc-global-discount")
 }
 /**
  * mm_show_post_author_first_name
+ * @param string $what what to show (display, string, string-return)
  */
 function mm_show_post_author_login($what = 'display')
 {
@@ -63,6 +65,8 @@ function mm_show_post_author_login($what = 'display')
 }
 /**
  * Function mm_show_cta_by_user
+ * Description: Show CTA by user
+ * @param string $what what to show (whatsapp, phone, display)
  */
 function mm_show_cta_by_user($what = 'display')
 {
@@ -109,10 +113,30 @@ function mm_show_cta_by_user($what = 'display')
         } elseif ('display' === $what) {
             echo esc_html(carbon_get_user_meta($author_id, 'cb_user_phone'));
         }
-    } else {
-        $text_message = 'Hallo%20Supplier%20Blinds';
+    } elseif (is_author()) {
+        if ('whatsapp' === $what) {
+            $text_message = str_replace(' ', '%20', get_the_title());
+            $user_phone = substr_replace(carbon_get_user_meta(get_post_field('post_author', get_the_ID()), 'cb_user_phone'), '62', 0, 1);
+            $user_phone = str_replace('-', '', $user_phone);
+            $user_phone = str_replace(' ', '', $user_phone);
+            echo '//api.whatsapp.com/send?phone=' . esc_html($user_phone) . '&text=Hallo%20Supplier%20Blinds%20Mohon%20Info%20*%20' . esc_html($text_message) . '%20 *';
+        } elseif ('phone' === $what) {
+            $text_message = str_replace(' ', '%20', get_the_title());
+            $user_phone = substr_replace(carbon_get_user_meta(get_post_field('post_author', get_the_ID()), 'cb_user_phone'), '62', 0, 1);
+            $user_phone = str_replace('-', '', $user_phone);
+            $user_phone = str_replace(' ', '', $user_phone);
+            echo 'tel:+' . esc_html($user_phone);
+        } else {
+            echo esc_html(carbon_get_user_meta(get_post_field('post_author', get_the_ID()), 'cb_user_phone'));
+        }
     }
 }
+
+/**
+ * Function mm_user_login_name
+ * Description: Show all user login name
+ * @param string $the_id id of the ul
+ */
 function mm_user_login_name($the_id = 'user-list')
 {
     $users = get_users(array('role' => 'administrator'));

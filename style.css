@@ -1235,7 +1235,16 @@ ul#fcontact-user-city-list-wr {
   background: linear-gradient(to right, #333333, #000000, #333333);
   color: white;
 }
-
+#foo:before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-accent-1);
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
 #foo-wr {
   display: grid;
   gap: 2rem;

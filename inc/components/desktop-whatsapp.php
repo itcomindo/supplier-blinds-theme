@@ -25,34 +25,37 @@ function mm_show_greeting()
     }
 }
 
+
+
+if (!is_search()) {
 ?>
 
-
-<div id="greeting" class="animate__animated animate__backInUp">
-    <div id="greeting-cs-image">
-        <img src="<?php echo get_template_directory_uri() . '/assets/images/cs-female.webp';  ?>" title="Customer Service" alt="Customer Service">
+    <div id="greeting" class="animate__animated animate__backInUp">
+        <div id="greeting-cs-image">
+            <img src="<?php echo get_template_directory_uri() . '/assets/images/cs-female.webp';  ?>" title="Customer Service" alt="Customer Service">
+        </div>
+        <?php mm_show_greeting(); ?>
     </div>
-    <?php mm_show_greeting(); ?>
-</div>
 
-
-<div id="dwa">
-    <div class="dwa-wr">
-        <div id="dwa-close">X</div>
-        <div id="dwa-item-wr">
-            <?php
-            if (is_home() || is_page() || is_front_page() || is_category()) {
-            ?>
-                <a href="<?php mm_show_kantor_pusat_phone('whatsapp'); ?>" class="dwa-item dwa-wa" rel="noopener" title="customer service"><i class="fab fa-whatsapp"></i> Chat</a>
-                <a href="<?php mm_show_kantor_pusat_phone('phone'); ?>" class="dwa-item dwa-call" rel="noopener" title="customer service"><i class="fas fa-phone"></i> Call</a>
-            <?php
-            } elseif (is_single() || is_tag()) {
-            ?>
-                <a href="<?php mm_show_cta_by_user('whatsapp'); ?>" class="dwa-item dwa-wa" rel="noopener" title="customer service"><i class="fab fa-whatsapp"></i> Chat</a>
-                <a href="<?php mm_show_cta_by_user('phone'); ?>" class="dwa-item dwa-call" rel="noopener" title="customer service"><i class="fas fa-phone"></i> Call</a>
-            <?php
-            }
-            ?>
+    <div id="dwa">
+        <div class="dwa-wr">
+            <div id="dwa-close">X</div>
+            <div id="dwa-item-wr">
+                <?php
+                if (is_home() || is_page() || is_front_page() || is_category()) {
+                ?>
+                    <a href="<?php mm_show_kantor_pusat_phone('whatsapp'); ?>" class="dwa-item dwa-wa" rel="noopener" title="customer service"><i class="fab fa-whatsapp"></i> Chat</a>
+                    <a href="<?php mm_show_kantor_pusat_phone('phone'); ?>" class="dwa-item dwa-call" rel="noopener" title="customer service"><i class="fas fa-phone"></i> Call</a>
+                <?php
+                } elseif (is_single() || is_tag() || is_author()) {
+                ?>
+                    <a href="<?php mm_show_cta_by_user('whatsapp'); ?>" class="dwa-item dwa-wa" rel="noopener" title="customer service"><i class="fab fa-whatsapp"></i> Chat</a>
+                    <a href="<?php mm_show_cta_by_user('phone'); ?>" class="dwa-item dwa-call" rel="noopener" title="customer service"><i class="fas fa-phone"></i> Call</a>
+                <?php
+                }
+                ?>
+            </div>
         </div>
     </div>
-</div>
+<?php
+}
