@@ -7,7 +7,6 @@
  * @author Budi Haryono <mail.budiharyono@gmail.com>
  * @since 019
  */
-
 defined('ABSPATH') || exit;
 $domain_name = $_SERVER['HTTP_HOST'];
 ?>
@@ -22,8 +21,6 @@ $domain_name = $_SERVER['HTTP_HOST'];
                     <span class="lw75-mw100 text-center">Hanya menjual produk-produk Window Blinds (Roller, Horizontal, Vertical, Wooden, Zebra blind) terbaik, berkualitas dengan harga terjangkau</span>
                 <?php
                 } elseif (is_category()) {
-                    //get current category name
-
                     $category_name = single_cat_title("", false);
                     $title = 'Jual Produk ' . single_cat_title('', false) . ' Terbaik Berkualitas Harga Murah';
                     $description = 'Jual Produk ' . single_cat_title('', false) . ' Terbaik Berkulaitas Harga Termurah di ' . $domain_name . ' - Supplier Blinds (Distributor Tirai Window Blinds)';
@@ -37,40 +34,37 @@ $domain_name = $_SERVER['HTTP_HOST'];
                             <p>Kami merupakan supplier <?php echo esc_html($category_name); ?> di Indonesia siap untuk bekerjasama mengirim dan memasang produk <?php echo esc_html($category_name); ?> di kota Anda.</p>
                         </div>
                     </div>
-
                 <?php
                 } elseif (is_search()) {
                 ?>
-                    <h2 id="prod-setion-head-custom" class="section-head-big">Produk</h2>
+                    <h1 id="prod-setion-head-custom" class="section-head-big">Produk</h1>
+                    <span class="lw75-mw100 text-center">Hanya menjual produk-produk Window Blinds (Roller, Horizontal, Vertical, Wooden, Zebra blind) terbaik, berkualitas dengan harga terjangkau</span>
+                <?php
+                } elseif (is_author()) {
+                    $author = get_queried_object();
+                    $author_id = $author->ID;
+                    $author_login_name = get_the_author_meta('user_login', $author_id);
+                    $title = 'Supplier Distributor Roller Horizontal Vertical Blinds ' . $author_login_name;
+                    $description = $title . 'Supplier Distributor Agen Toko Jual Window Blinds di ' . get_the_author_meta('display_name');
+                ?>
+                    <h1 id="prod-setion-head-custom" class="section-head-big"><?php echo esc_html($title); ?></h1>
                     <span class="lw75-mw100 text-center">Hanya menjual produk-produk Window Blinds (Roller, Horizontal, Vertical, Wooden, Zebra blind) terbaik, berkualitas dengan harga terjangkau</span>
                 <?php
                 }
                 ?>
-
             </div>
             <div id="prod-item-wr">
                 <?php mm_show_produk_display(); ?>
             </div>
-
-
-
-
-
         </div>
     </div>
 </section>
-
-
 <?php
-
-
 function mm_show_produk_display()
 {
     $exclude_cats = array();
-
     // Daftar slug kategori yang akan dikecualikan.
     $excluded_slugs = array('supplier', 'blog');
-
     // Dapatkan ID dari setiap kategori berdasarkan slug.
     foreach ($excluded_slugs as $slug) {
         $kategori = get_term_by('slug', $slug, 'category');
@@ -78,12 +72,10 @@ function mm_show_produk_display()
             $exclude_cats[] = $kategori->term_id;
         }
     }
-
     // Buat argumen untuk WP_Query
     if (is_category()) {
         //get current category name
         $current_category = single_cat_title("", false);
-
         $args = array(
             'posts_per_page' => 10,  // Tampilkan 10 post per halaman.
             'orderby' => 'rand',  // Urutkan secara acak.
@@ -95,18 +87,24 @@ function mm_show_produk_display()
             'orderby' => 'rand',  // Urutkan secara acak.
             's' => get_search_query()
         );
+    } elseif (is_author()) {
+        $author = get_queried_object();
+        $author_id = $author->ID;
+        $args = array(
+            'posts_per_page' => 10,  // Tampilkan 10 post per halaman.
+            'orderby' => 'rand',  // Urutkan secara acak.
+            'author' => $author_id
+        );
     } else {
         $args = array(
             'posts_per_page' => 10,  // Tampilkan 10 post per halaman.
             'orderby' => 'rand',  // Urutkan secara acak.
         );
     }
-
     // Jika ada kategori untuk dikecualikan, tambahkan ke argumen.
     if (!empty($exclude_cats)) {
         $args['category__not_in'] = $exclude_cats;  // Kecualikan kategori ini.
     }
-
     // Lakukan query.
     $query = new WP_Query($args);
     if ($query->have_posts()) {
@@ -127,11 +125,7 @@ function mm_show_produk_display()
                     <h3 class="prod-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_html(get_the_title()); ?>" rel="bookmark"><?php echo esc_html(get_the_title()); ?></a></h3>
                     <span class="prod-excerpt"><?php echo esc_html(get_the_title()); ?> dapat dipesan disini.</span>
                     <a href="<?php the_permalink(); ?>" class="prod-detail" rel="bookmark" title="<?php echo esc_html(get_the_title()); ?>"><i class="fas fa-arrow-right"></i> Lihat Detail Produk</a>
-
-
                 </div>
-
-
             </div>
 <?php
         }

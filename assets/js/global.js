@@ -169,14 +169,42 @@ window.addEventListener('DOMContentLoaded', (event) => {
         */
         mm_load_fpc();
         function mm_load_fpc() {
-            var $fpc = jQuery('#fpc-home');
-            function toggleFpc() {
-                $fpc.toggleClass('active');
+            jQuery('.prod-menu-trigger').click(function () {
+                jQuery('#flocat').toggleClass('active');
                 jQuery('body').toggleClass('no-scroll');
-            }
-            jQuery('.prod-menu-trigger').click(toggleFpc);
-            jQuery('#fpc-home').click(toggleFpc);
+            });
+            jQuery('#flocat-close').click(function () {
+                jQuery('#flocat').removeClass('active');
+                jQuery('body').removeClass('no-scroll');
+            });
         }
+
+
+        /**
+        =========================
+        * tab in fpc
+        *=========================
+        */
+        mm_tab_in_fpc();
+        function mm_tab_in_fpc() {
+            var tabTrigger = jQuery('#flocat-choise-head .flocat-trigger'); // Pemicu tab.
+            jQuery(tabTrigger).on('click', function () {
+                jQuery('#flocat-choise-head .flocat-trigger').removeClass('active'); // Hapus kelas active dari semua pemicu.
+                jQuery(this).addClass('active'); // Tambahkan kelas active ke pemicu yang diklik.
+                var dataTab = jQuery(this).data('tab'); // Ambil nilai data-tab.
+                // Cari elemen dengan data-tab yang sama di bawah flocat-choise-content, kemudian ubah kelasnya.
+                jQuery('#flocat-choise-content .flocat-tab-content').removeClass('show').addClass('hide'); // Sembunyikan semua tab.
+                jQuery('#flocat-choise-content .flocat-tab-content[data-tab="' + dataTab + '"]').removeClass('hide').addClass('show'); // Tampilkan tab yang sesuai.
+            });
+        }
+
+
+        /**
+        =========================
+        * Load FPC Contact
+        * DESCRIPTION: Load Floating Contact
+        *=========================
+        */
 
         mm_load_fcontact();
         function mm_load_fcontact() {

@@ -828,7 +828,7 @@ li.fpc-item a {
 *=========================
 */
 
-#flocat {
+#fpc-home {
   position: fixed;
   top: 0;
   left: 0;
@@ -840,12 +840,12 @@ li.fpc-item a {
   transition: 0.3s linear all;
 }
 
-#flocat.active {
+#fpc-home.active {
   transform: translateX(0);
   transition: 0.3s linear all;
 }
 
-#flocat #flocat-wr {
+#fpc-home #fpc-wr {
   height: auto;
   width: 300px;
   position: absolute;
@@ -859,7 +859,7 @@ li.fpc-item a {
   border: 1px solid var(--transparent-light-3);
 }
 
-#flocat #flocat-close {
+#fpc-home #fpc-close {
   position: absolute;
   width: 30px;
   height: 30px;
@@ -877,12 +877,12 @@ li.fpc-item a {
   cursor: pointer;
   z-index: 99999;
 }
-#flocat #flocat-head {
+#fpc-home #fpc-head {
   color: var(--color-accent-1);
   display: block !important;
   visibility: visible !important;
 }
-#flocat ul#flocat-item-wr {
+#fpc-home ul#fpc-item-wr {
   width: 100%;
   padding: 0;
   margin: 0;
@@ -892,7 +892,7 @@ li.fpc-item a {
   align-items: flex-start;
   box-sizing: border-box;
 }
-#flocat .flocat-item {
+#fpc-home .fpc-item {
   box-sizing: border-box;
   display: flex;
   width: 100%;
@@ -905,27 +905,27 @@ li.fpc-item a {
   border-bottom: 1px dashed var(--transparent-light-4);
 }
 
-#flocat .flocat-item-link {
+#fpc-home .fpc-item-link {
   color: white;
 }
-#flocat .flocat-item-link:hover {
+#fpc-home .fpc-item-link:hover {
   color: var(--color-accent-1);
 }
 
-#flocat-choise-head {
+#fpc-choise-head {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem;
 }
 
-.flocat-trigger.active {
+.fpc-trigger.active {
   background: linear-gradient(
     to bottom,
     var(--color-accent-1),
     var(--color-accent-1-dark)
   );
 }
-.flocat-trigger {
+.fpc-trigger {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -934,7 +934,7 @@ li.fpc-item a {
   cursor: pointer;
 }
 
-#flocat-user-item-wr {
+#fpc-user-item-wr {
   padding: 0;
   list-style: none;
   display: flex;
@@ -943,7 +943,7 @@ li.fpc-item a {
   gap: 10px 12px;
   justify-content: center;
 }
-.flocat-user-item {
+.fpc-user-item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -952,7 +952,7 @@ li.fpc-item a {
   border: 1px solid var(--color-accent-1);
   border-radius: 5px;
 }
-.flocat-user-item a {
+.fpc-user-item a {
   color: white;
 }
 
