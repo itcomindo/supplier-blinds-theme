@@ -15,7 +15,7 @@ if (!is_front_page() || !is_home()) {
         <div class="container h100">
             <div id="topbar-wr" class="hw100">
                 <div id="topbar-left" class="topbar-col hw100"><span>Supplier Tirai (Roller Blinds)</span></div>
-                <div id="topbar-right" class="topbar-col hw100"><span>0813-9891-2341</span></div>
+                <div id="topbar-right" class="topbar-col hw100"><span><?php mm_show_cta_by_user('display'); ?></span></div>
             </div>
         </div>
     </div>

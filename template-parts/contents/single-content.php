@@ -62,13 +62,20 @@ if (is_single()) {
                 <?php the_content(); ?>
             </div>
 
+            <?php
+            if ('Supplier' != $pcname) {
+            ?>
+                <div id="related-post-wr" data-author="<?php echo esc_html($author); ?>">
+                    <h3 id="related-post-head" class="section-head">Produk Terkait: </h3>
+                    <?php
+                    get_template_part('inc/related-post');
+                    ?>
+                </div>
+            <?php
+            }
+            ?>
 
-            <div id="related-post-wr" data-author="<?php echo esc_html($author); ?>">
-                <h3 id="related-post-head" class="section-head">Produk Terkait: </h3>
-                <?php
-                get_template_part('inc/related-post');
-                ?>
-            </div>
+
         </div>
 
     </div>

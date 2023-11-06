@@ -54,7 +54,7 @@ defined('ABSPATH') || exit;
             </div>
 
             <div id="about-bot" class="about-row">
-                <span id="about-bot-content" class="font-display">Melayani pemesanan, pengiriman dan pemasangan keseluruh Indonesia. Informasi lebih lengkap hubungi 0813-9891-2341</span>
+                <span id="about-bot-content" class="font-display">Melayani pemesanan, pengiriman dan pemasangan keseluruh Indonesia. Informasi lebih lengkap hubungi <?php mm_show_kantor_pusat_phone('display'); ?></span>
             </div>
 
 

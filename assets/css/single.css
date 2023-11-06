@@ -195,6 +195,7 @@ img.arc-fim {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  padding-bottom: 5rem;
 }
 
 /**

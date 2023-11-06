@@ -36,8 +36,10 @@ $domain_name = $_SERVER['HTTP_HOST'];
                     </div>
                 <?php
                 } elseif (is_search()) {
+                    $head = esc_html(get_search_query()); // Mengambil query pencarian.
+                    $head = preg_replace('/[^a-zA-Z0-9]/', '', $head); // Menghapus karakter yang bukan huruf dan angka.
                 ?>
-                    <h1 id="prod-setion-head-custom" class="section-head-big">Produk</h1>
+                    <h1 id="prod-setion-head-custom" class="section-head-big">Produk <?php echo esc_html($head) ?></h1>
                     <span class="lw75-mw100 text-center">Hanya menjual produk-produk Window Blinds (Roller, Horizontal, Vertical, Wooden, Zebra blind) terbaik, berkualitas dengan harga terjangkau</span>
                 <?php
                 } elseif (is_author()) {

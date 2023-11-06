@@ -47,28 +47,60 @@ function mm_show_cb_global_discount($elclass  = "arc-global-discount")
     }
 }
 
+
+
 /**
- * mm_show_post_author_first_name
- * @param string $what what to show (display, string, string-return)
+ * Menampilkan atau mengembalikan login penulis pos.
+ *
+ * @param string $what Tipe output yang diinginkan: 'display', 'string', atau 'string-return'.
+ * @return string|void Login penulis jika 'what' adalah 'string-return', atau langsung menampilkan login penulis.
  */
 function mm_show_post_author_login($what = 'display')
 {
+    // Dapatkan ID penulis dan login penulis.
     $author_id = get_post_field('post_author', get_the_ID());
     $author_login = get_the_author_meta('user_login', $author_id);
-    if ('display' === $what) {
-        $author_login = '<span class="arc-khusus-kota"><span>Khusus </span><span>' . $author_login . '</span></span>';
-        return $author_login;
-    } elseif ('string' === $what) {
-        echo esc_html($author_login);
-    } elseif ('string-return' === $what) {
-        return esc_html($author_login);
+
+    // Pastikan login penulis ter-escape dengan benar untuk menghindari kerentanan XSS.
+    $author_login_escaped = esc_html($author_login);
+
+    // Handle berbagai skenario tampilan berdasarkan parameter 'what'.
+    switch ($what) {
+        case 'display':
+            // Mengembalikan string HTML yang aman untuk digunakan.
+            return "<span class=\"arc-khusus-kota\"><span>Khusus </span><span>{$author_login_escaped}</span></span>";
+
+        case 'string':
+            // Langsung tampilkan login penulis yang sudah ter-escape.
+            echo $author_login_escaped;
+            break;
+
+        case 'string-return':
+            // Mengembalikan string login penulis yang sudah ter-escape.
+            return $author_login_escaped;
+
+        default:
+            // Jika 'what' tidak dikenali, tampilkan/tangani error sesuai kebutuhan.
+            // Contoh: tulis log error atau tampilkan pesan error.
+            // Ini bergantung pada kebutuhan aplikasi Anda.
+            break;
     }
 }
-/**
- * Function mm_show_cta_by_user
- * Description: Show CTA by user
- * @param string $what what to show (whatsapp, phone, display)
- */
+
+// function mm_show_post_author_login($what = 'display')
+// {
+//     $author_id = get_post_field('post_author', get_the_ID());
+//     $author_login = get_the_author_meta('user_login', $author_id);
+//     if ('display' === $what) {
+//         $author_login = '<span class="arc-khusus-kota"><span>Khusus </span><span>' . $author_login . '</span></span>';
+//         return $author_login;
+//     } elseif ('string' === $what) {
+//         echo esc_html($author_login);
+//     } elseif ('string-return' === $what) {
+//         return esc_html($author_login);
+//     }
+// }
+
 /**
  * Menampilkan CTA berdasarkan pengguna.
  *

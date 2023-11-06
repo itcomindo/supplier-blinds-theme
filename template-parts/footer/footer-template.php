@@ -62,3 +62,4 @@ get_template_part('inc/components/desktop-whatsapp');
 mm_show_floating_category();
 get_template_part('template-parts/footer/footer-menu');
 get_template_part('inc/components/search-modal');
+get_template_part('inc/components/help');
